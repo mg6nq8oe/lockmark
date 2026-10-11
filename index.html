@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="./icons/icon-192.png">
 <title>Lockmark – Lesezeichen</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#fff8f5;color:#211d1b;font:13px Arial,sans-serif}.bar{height:7vh;min-height:43px;max-height:62px;display:grid;grid-template-rows:1fr 1fr;overflow:hidden;padding:1px 5px;border-bottom:1px solid #e5d8d2}.row{display:flex;align-items:center;gap:2px;overflow:hidden;white-space:nowrap;width:100%;min-width:0}.pin{max-width:none;min-width:0;flex:0 1 auto}.pin .label{max-width:clamp(54px,10vw,160px)}.pin{height:100%;max-width:155px;display:flex;align-items:center;gap:5px;padding:1px 5px;color:#091a9c;text-decoration:none;font-weight:bold;border:1px solid transparent;border-radius:4px;flex-shrink:0}.pin:hover,.pin.folder{background:#eef2ff}.glyph{width:18px;height:18px;display:inline-grid;place-items:center;border:1px solid #ffb74d;border-radius:4px;background:#fff;flex-shrink:0}.bar{width:100vw;max-width:100vw;grid-template-columns:minmax(0,1fr);padding-left:5px;padding-right:5px}.row{width:100%;min-width:0;gap:2px}.pin{max-width:none;flex:0 0 auto;flex-shrink:0}.pin .label{max-width:none;overflow:hidden;text-overflow:ellipsis}.popup,.ctx{display:none;position:fixed;background:#fff;z-index:5;border:1px solid #d9ced9;box-shadow:0 5px 20px #241b2928}.popup.show,.ctx.show{display:block}.popup{min-width:300px;max-width:min(480px,96vw);max-height:75vh;overflow:auto;border-radius:8px;padding:8px}.popitem{display:flex;align-items:center;gap:8px;width:100%;min-height:32px;padding:5px 8px;border:0;border-radius:5px;background:#fff;text-align:left;color:#16132d;font-size:13px;cursor:pointer}.popitem:hover,.ctx button:hover,.treeitem:hover{background:#f0edff}.popname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sub{font-size:10px;color:#8c8495}.ctx{min-width:210px;padding:5px;border-radius:8px}.ctx button{display:block;width:100%;text-align:left;background:#fff;border:0;border-radius:5px;padding:8px 10px;cursor:pointer;font:12px Arial}.sep{height:1px;background:#eee5eb;margin:4px}.bg{display:none;position:fixed;inset:0;background:#21171088;align-items:center;justify-content:center;padding:12px;z-index:10}.bg.show{display:flex}.modal{background:#fffdfa;border-radius:10px;padding:16px;width:min(560px,100%);max-height:90vh;overflow:auto}.field{display:block;margin:10px 0}.field span{display:block;font-weight:bold;margin-bottom:4px}.field input,.field select{width:100%;padding:7px;border:1px solid #e7d8d1;border-radius:5px}.btn{background:white;border:1px solid #e7d8d1;border-radius:5px;padding:5px 8px;cursor:pointer}.actions{display:flex;gap:6px;justify-content:flex-end;margin-top:12px}.toast{display:none;position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#222;color:white;padding:8px 12px;border-radius:6px;z-index:20}.toast.show{display:block}.tree{max-height:55vh;overflow:auto}.pin[draggable="true"]{cursor:grab}.pin.dragging{opacity:.35}.pin.drop-target{outline:2px dashed #5965d8}.overflowpin{background:#f4f0eb!important;color:#4a3b32!important}.treeitem{display:flex;align-items:center;gap:7px;padding:5px;border-radius:4px}.treeitem button{border:0;background:transparent;text-align:left;cursor:pointer}.treeitem .tree-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.muted{color:#827989;font-size:12px}
+*{box-sizing:border-box}body{margin:0;background:#fff8f5;color:#211d1b;font:13px Arial,sans-serif}.bar{height:7vh;min-height:43px;max-height:62px;display:grid;grid-template-rows:1fr 1fr;overflow:hidden;padding:1px 5px;border-bottom:1px solid #e5d8d2}.row{display:flex;align-items:center;gap:2px;overflow:hidden;white-space:nowrap;width:100%;min-width:0}.pin{max-width:none;min-width:0;flex:0 1 auto}.pin .label{max-width:clamp(54px,10vw,160px)}.pin{height:100%;max-width:155px;display:flex;align-items:center;gap:5px;padding:1px 5px;color:#091a9c;text-decoration:none;font-weight:bold;border:1px solid transparent;border-radius:4px;flex-shrink:0}.pin:hover,.pin.folder{background:#eef2ff}.glyph{width:18px;height:18px;display:inline-grid;place-items:center;border:1px solid #ffb74d;border-radius:4px;background:#fff;flex-shrink:0}.bar{width:100vw;max-width:100vw;grid-template-columns:minmax(0,1fr);padding-left:5px;padding-right:5px}.row{width:100%;min-width:0;gap:2px}.pin{max-width:none;flex:0 0 auto;flex-shrink:0}.pin .label{max-width:none;overflow:hidden;text-overflow:ellipsis}.popup,.ctx{display:none;position:fixed;background:#fff;z-index:5;border:1px solid #d9ced9;box-shadow:0 5px 20px #241b2928}.popup.show,.ctx.show{display:block}.popup{min-width:300px;max-width:min(480px,96vw);max-height:75vh;overflow:auto;border-radius:8px;padding:8px}.popitem{display:flex;align-items:center;gap:8px;width:100%;min-height:32px;padding:5px 8px;border:0;border-radius:5px;background:#fff;text-align:left;color:#16132d;font-size:13px;cursor:pointer}.popitem:hover,.ctx button:hover,.treeitem:hover{background:#f0edff}.popname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sub{font-size:10px;color:#8c8495}.ctx{min-width:210px;padding:5px;border-radius:8px}.ctx button{display:block;width:100%;text-align:left;background:#fff;border:0;border-radius:5px;padding:8px 10px;cursor:pointer;font:12px Arial}.sep{height:1px;background:#eee5eb;margin:4px}.bg{display:none;position:fixed;inset:0;background:#21171088;align-items:center;justify-content:center;padding:12px;z-index:10}.bg.show{display:flex}.modal{background:#fffdfa;border-radius:10px;padding:16px;width:min(560px,100%);max-height:90vh;overflow:auto}.field{display:block;margin:10px 0}.field span{display:block;font-weight:bold;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;padding:7px;border:1px solid #e7d8d1;border-radius:5px}.btn{background:white;border:1px solid #e7d8d1;border-radius:5px;padding:5px 8px;cursor:pointer}.actions{display:flex;gap:6px;justify-content:flex-end;margin-top:12px}.toast{display:none;position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#222;color:white;padding:8px 12px;border-radius:6px;z-index:20}.toast.show{display:block}.tree{max-height:55vh;overflow:auto}.pin[draggable="true"]{cursor:grab}.pin.dragging{opacity:.35}.pin.drop-target{outline:2px dashed #5965d8}.overflowpin{background:#f4f0eb!important;color:#4a3b32!important}.treeitem{display:flex;align-items:center;gap:7px;padding:5px;border-radius:4px}.treeitem button{border:0;background:transparent;text-align:left;cursor:pointer}.treeitem .tree-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.muted{color:#827989;font-size:12px}
 .foldernode{margin-left:12px;border-left:1px dashed #d9ced9;padding-left:6px;display:none}.foldernode.open{display:block}
 </style>
 <body>
@@ -97,6 +97,7 @@ class BookmarkManager {
 
   persist() {
     this.repo.save(this.items);
+    if (window.lockmarkSync) window.lockmarkSync.localChanged(this.items);
   }
 
   getKids(parentId = "") {
@@ -302,6 +303,133 @@ class ToolbarUI {
   }
 }
 
+// --- 4. SYNCHRONISIERUNG: URL-Schlüssel, E2EE und austauschbare Backends ---
+const b64u = bytes => { let s = btoa(String.fromCharCode(...new Uint8Array(bytes))); return s.replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/g,""); };
+const unb64u = s => { s=String(s).replace(/-/g,"+").replace(/_/g,"/"); while(s.length%4) s+="="; return Uint8Array.from(atob(s),c=>c.charCodeAt(0)); };
+const randomToken = (n=32) => b64u(crypto.getRandomValues(new Uint8Array(n)));
+function readShareState() {
+  const params = new URLSearchParams(location.hash.slice(1));
+  if (!params.has("key") || !params.has("vault")) return null;
+  try { return { key: params.get("key"), vault: params.get("vault"), config: params.has("config") ? JSON.parse(new TextDecoder().decode(unb64u(params.get("config")))) : defaultSyncConfig() }; }
+  catch (e) { console.error("Ungültiger Lockmark-Link",e); return null; }
+}
+function defaultSyncConfig() {
+  return { version:1, provider:"supabase", url:"", publishableKey:"", storage:{table:"user_storage",idColumn:"id",payloadColumn:"payload",updatedAtColumn:"updated_at"}, realtime:{enabled:true}, note:"Nur einen öffentlichen publishable/anon-Key verwenden, niemals service_role." };
+}
+function setShareState(state) {
+  const q = new URLSearchParams(); q.set("config",b64u(new TextEncoder().encode(JSON.stringify(state.config)))); q.set("vault",state.vault); q.set("key",state.key);
+  history.replaceState(null,"",location.pathname+location.search+"#"+q.toString());
+}
+class LockmarkSync {
+  constructor(state) { this.state=state; this.client=null; this.channel=null; this.timer=null; this.debounce=null; this.applyingRemote=false; this.lastRemoteAt=0; this.lastCipher=""; this.started=false; }
+  async cryptoKey() { return crypto.subtle.importKey("raw",unb64u(this.state.key),{name:"AES-GCM"},false,["encrypt","decrypt"]); }
+  async encrypt(value) {
+    const iv=crypto.getRandomValues(new Uint8Array(12)); const key=await this.cryptoKey();
+    const plain=new TextEncoder().encode(JSON.stringify(value)); const cipher=await crypto.subtle.encrypt({name:"AES-GCM",iv},key,plain);
+    return JSON.stringify({v:1,alg:"A256GCM",iv:b64u(iv),data:b64u(cipher)});
+  }
+  async decrypt(envelope) {
+    const e=typeof envelope==="string"?JSON.parse(envelope):envelope;
+    if(e.v!==1||e.alg!=="A256GCM") throw Error("Unbekanntes Verschlüsselungsformat");
+    const key=await this.cryptoKey(); const plain=await crypto.subtle.decrypt({name:"AES-GCM",iv:unb64u(e.iv)},key,unb64u(e.data));
+    return JSON.parse(new TextDecoder().decode(plain));
+  }
+  status(text) { const el=document.getElementById("app-status"); if(el) el.textContent="Lockmark · "+text; }
+  ready() { const c=this.state.config; return c && ((c.provider==="supabase" && c.url && c.publishableKey) || (c.provider==="rest" && c.readUrl && c.writeUrl)); }
+  async start() {
+    if(this.started) return; this.started=true;
+    if(!this.ready()) { this.status("lokal · Sync konfigurieren"); return; }
+    try {
+      if(this.state.config.provider==="supabase") await this.startSupabase();
+      else if(this.state.config.provider==="rest") await this.startRest();
+      else throw Error("Unbekannter Provider: "+this.state.config.provider);
+    } catch(e) { console.error("Lockmark Sync:",e); this.status("Sync-Fehler"); toast("Sync konnte nicht starten: "+e.message); }
+  }
+  async startSupabase() {
+    const c=this.state.config;
+    if(!window.supabase?.createClient) await new Promise((resolve,reject)=>{
+      let old=document.querySelector('script[data-lockmark-supabase]');
+      if(old) { old.addEventListener("load",resolve,{once:true}); old.addEventListener("error",()=>reject(Error("Supabase-Bibliothek konnte nicht geladen werden")),{once:true}); return; }
+      let sc=document.createElement("script"); sc.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"; sc.dataset.lockmarkSupabase="1"; sc.onload=resolve; sc.onerror=()=>reject(Error("Supabase-Bibliothek konnte nicht geladen werden")); document.head.append(sc);
+    });
+    if(!window.supabase?.createClient) throw Error("Supabase-JavaScript-Bibliothek ist nicht verfügbar");
+    this.client=window.supabase.createClient(c.url,c.publishableKey,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
+    await this.pullSupabase();
+    if(c.realtime?.enabled!==false) {
+      const table=c.storage?.table||"user_storage", idCol=c.storage?.idColumn||"id";
+      this.channel=this.client.channel("lockmark-"+this.state.vault).on("postgres_changes",{event:"*",schema:"public",table,filter:`${idCol}=eq.${this.state.vault}`},payload=>{
+        if(payload.new?.[c.storage?.payloadColumn||"payload"]) this.applyRemote(payload.new).catch(e=>console.error(e));
+      }).subscribe(status=>{ if(status==="SUBSCRIBED") this.status("synchronisiert · live"); else if(status==="CHANNEL_ERROR") this.status("Realtime nicht verfügbar"); });
+    } else this.status("verbunden");
+  }
+  async pullSupabase() {
+    const c=this.state.config, s=c.storage||{}, table=s.table||"user_storage", idCol=s.idColumn||"id", payloadCol=s.payloadColumn||"payload", updatedCol=s.updatedAtColumn||"updated_at";
+    const {data,error}=await this.client.from(table).select(`${idCol},${payloadCol},${updatedCol}`).eq(idCol,this.state.vault).maybeSingle();
+    if(error) throw Error(error.message+" (Tabelle/RLS prüfen)");
+    if(data) await this.applyRemote(data); else await this.uploadCurrent();
+  }
+  async applyRemote(row) {
+    const c=this.state.config, s=c.storage||{}, payloadCol=s.payloadColumn||"payload", updatedCol=s.updatedAtColumn||"updated_at";
+    const stamp=Date.parse(row[updatedCol]||"")||Date.now(); if(stamp<this.lastRemoteAt) return;
+    const raw=row[payloadCol]; if(!raw) return;
+    if(raw===this.lastCipher) { this.lastRemoteAt=Math.max(this.lastRemoteAt,stamp); return; }
+    const data=await this.decrypt(raw);
+    if(!Array.isArray(data.items)) throw Error("Synchronisierte Daten sind ungültig");
+    this.lastRemoteAt=stamp; this.lastCipher=raw; this.applyingRemote=true;
+    try { bm.items=data.items; repo.save(bm.items); toolbarUI.render(); }
+    finally { this.applyingRemote=false; }
+    this.status("synchronisiert");
+  }
+  localChanged(items) {
+    if(this.applyingRemote || !this.ready()) return;
+    clearTimeout(this.debounce); this.debounce=setTimeout(()=>this.uploadCurrent().catch(e=>{console.error(e);this.status("Upload fehlgeschlagen");}),500);
+  }
+  async uploadCurrent() {
+    if(!this.ready() || this.applyingRemote) return;
+    const envelope=await this.encrypt({version:1,updatedAt:Date.now(),items:bm.items});
+    if(envelope===this.lastCipher) return;
+    const now=new Date().toISOString();
+    if(this.state.config.provider==="supabase") {
+      const s=this.state.config.storage||{}, row={}; row[s.idColumn||"id"]=this.state.vault; row[s.payloadColumn||"payload"]=envelope; row[s.updatedAtColumn||"updated_at"]=now;
+      const {error}=await this.client.from(s.table||"user_storage").upsert(row,{onConflict:s.idColumn||"id"}); if(error) throw Error(error.message+" (RLS/Berechtigungen prüfen)");
+    } else {
+      const c=this.state.config, url=(c.writeUrl||"").replaceAll("{id}",encodeURIComponent(this.state.vault));
+      const headers={"Content-Type":"application/json",...(c.headers||{})};
+      const res=await fetch(url,{method:c.method||"PUT",headers,body:JSON.stringify({id:this.state.vault,payload:envelope,updated_at:now})});
+      if(!res.ok) throw Error("REST-Server antwortete mit HTTP "+res.status);
+    }
+    this.lastCipher=envelope; this.lastRemoteAt=Date.now(); this.status("synchronisiert");
+  }
+  async startRest() {
+    await this.pullRest(); this.status("verbunden · REST");
+    // Generischer REST-Adapter hat ohne serverseitige Events einen konfigurierbaren Polling-Fallback.
+    const ms=Math.max(5000,Number(this.state.config.pollIntervalMs)||15000);
+    this.timer=setInterval(()=>this.pullRest().catch(e=>{console.error(e);this.status("Sync-Fehler");}),ms);
+  }
+  async pullRest() {
+    const c=this.state.config, url=(c.readUrl||"").replaceAll("{id}",encodeURIComponent(this.state.vault));
+    const res=await fetch(url,{headers:{...(c.headers||{})}}); if(res.status===404) return this.uploadCurrent(); if(!res.ok) throw Error("REST-Server antwortete mit HTTP "+res.status);
+    const row=await res.json(); if(row.payload) await this.applyRemote(row);
+  }
+}
+const initialShare=readShareState() || {key:randomToken(32),vault:randomToken(32),config:defaultSyncConfig()};
+if(!readShareState()) setShareState(initialShare);
+window.lockmarkSync=new LockmarkSync(initialShare);
+function openSyncSettings() {
+  const st=window.lockmarkSync.state;
+  const sample=JSON.stringify(st.config,null,2);
+  modal(`<h3>Synchronisierung & Teilen</h3><p class="muted">Der Verschlüsselungsschlüssel wird automatisch erzeugt und bleibt im URL-Fragment. Der Server erhält nur verschlüsselte Lesezeichen. Wer den vollständigen Link besitzt, kann auf diesen gemeinsamen Bestand zugreifen.</p><label class="field"><span>Backend-Konfiguration (JSON)</span><textarea id="sync-json" rows="13" style="width:100%;font:12px ui-monospace,monospace;padding:8px;border:1px solid #e7d8d1;border-radius:5px;resize:vertical">${esc(sample)}</textarea></label><p class="muted">Supabase: Projekt-URL und öffentlicher publishable/anon-Key. Niemals service_role verwenden. Tabelle benötigt die konfigurierten Spalten; für das Standardschema siehe Anleitung in der ZIP. Provider „rest“ verwendet readUrl/writeUrl mit {id}; der REST-Server muss JSON mit payload liefern und PUT/POST zum Schreiben unterstützen.</p><div class="actions" style="justify-content:space-between"><button class="btn" id="new-key">Neuen Schlüssel erzeugen</button><span><button class="btn" id="sync-cancel">Schließen</button> <button class="btn" id="sync-save">Konfiguration speichern</button></span></div><div class="actions"><button class="btn" id="copy-link">🔗 Teilen-Link kopieren</button><button class="btn" id="copy-config">JSON kopieren</button></div>`);
+  document.getElementById("sync-cancel").onclick=closeModal;
+  document.getElementById("sync-save").onclick=async()=>{
+    try { const cfg=JSON.parse(document.getElementById("sync-json").value); if(!cfg||typeof cfg!=="object"||!cfg.provider) throw Error("provider fehlt");
+      st.config=cfg; setShareState(st); closeModal(); window.lockmarkSync=new LockmarkSync(st); await window.lockmarkSync.start(); toast("Konfiguration gespeichert");
+    } catch(e) { toast("JSON/Sync-Fehler: "+e.message); }
+  };
+  document.getElementById("new-key").onclick=()=>{if(!confirm("Neuer Schlüssel erstellt einen neuen, getrennten Lesezeichenbestand. Bestehende Sync-Daten bleiben auf dem Server."))return; st.key=randomToken(32);st.vault=randomToken(32);setShareState(st);window.lockmarkSync=new LockmarkSync(st);document.getElementById("sync-json").value=JSON.stringify(st.config,null,2);toast("Neuer Schlüssel und neuer Speicher erstellt");};
+  document.getElementById("copy-link").onclick=()=>{setShareState(st);navigator.clipboard?.writeText(location.href).then(()=>toast("Teilen-Link kopiert")).catch(()=>toast("Link kopieren nicht möglich – URL aus der Adresszeile kopieren"));};
+  document.getElementById("copy-config").onclick=()=>navigator.clipboard?.writeText(document.getElementById("sync-json").value).then(()=>toast("JSON kopiert"));
+}
+
 // --- INITIALISIERUNG & GLOBALE HILFSFUNKTIONEN ---
 const repo = new BookmarkRepository("lockmark.data");
 const bm = new BookmarkManager(repo);
@@ -328,7 +456,7 @@ function modal(s) { document.getElementById("modal").innerHTML = s; document.get
 
 function showContextMenu(x, y, item = null) {
   let c = document.getElementById("ctx");
-  c.innerHTML = `<button data-act="link">＋ Neues Lesezeichen…</button><button data-act="folder">📁 Neuen Ordner…</button><div class="sep"></div><button data-act="all">Alle Lesezeichen anzeigen…</button><button data-act="import">Lesezeichen importieren…</button><button data-act="export">Lesezeichen exportieren…</button>${item?'<div class="sep"></div><button data-act="edit">Eintrag bearbeiten…</button><button data-act="remove">Aus Leiste entfernen</button>':""}`;
+  c.innerHTML = `<button data-act="link">＋ Neues Lesezeichen…</button><button data-act="folder">📁 Neuen Ordner…</button><div class="sep"></div><button data-act="all">Alle Lesezeichen anzeigen…</button><button data-act="sync">🔗 Synchronisierung / Teilen…</button><button data-act="import">Lesezeichen importieren…</button><button data-act="export">Lesezeichen exportieren…</button>${item?'<div class="sep"></div><button data-act="edit">Eintrag bearbeiten…</button><button data-act="remove">Aus Leiste entfernen</button>':""}`;
   c.style.left = Math.min(x, innerWidth - 220) + "px";
   c.style.top = Math.min(y, innerHeight - 210) + "px";
   c.classList.add("show");
@@ -339,6 +467,7 @@ function showContextMenu(x, y, item = null) {
     if (act === "import") importFile();
     if (act === "export") exportFile();
     if (act === "all") showAllBookmarks();
+    if (act === "sync") openSyncSettings();
     if (act === "edit") openEditModal(item);
     if (act === "remove") { bm.update(item.id, { bar: false }); toolbarUI.render(); }
   });
@@ -451,15 +580,16 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") { hidePop();
 
 // App starten
 toolbarUI.render();
+window.lockmarkSync.start().catch(e=>console.error(e));
+if (!initialShare.config.url && initialShare.config.provider === "supabase" && !initialShare.config.publishableKey) { setTimeout(()=>{ openSyncSettings(); }, 350); }
 
 // Progressive Web App: Service Worker benötigt HTTPS oder localhost.
 if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
   window.addEventListener("load", async () => {
     try {
-      const registration = await navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" });
-      await registration.update().catch(() => {});
+      await navigator.serviceWorker.register("./sw.js");
       const status = document.getElementById("app-status");
-      if (status) status.textContent = "Lockmark · Offline-Cache aktiv";
+      if (status) status.textContent = "Lockmark · offlinebereit";
     } catch (err) {
       console.error("Service Worker konnte nicht registriert werden:", err);
       const status = document.getElementById("app-status");
