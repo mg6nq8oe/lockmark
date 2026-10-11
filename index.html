@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#fff8f5">
-<meta name="description" content="Lockmark – deine lokale, kompakte Lesezeichenverwaltung.">
+<meta name="description" content="Lockmark — a compact bookmark manager.">
 <meta name="application-name" content="Lockmark">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="./icons/icon-192.png">
-<title>Lockmark – Lesezeichen</title>
+<title>Lockmark — Bookmarks</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#fff8f5;color:#211d1b;font:13px Arial,sans-serif}.bar{height:7vh;min-height:43px;max-height:62px;display:grid;grid-template-rows:1fr 1fr;overflow:hidden;padding:1px 5px;border-bottom:1px solid #e5d8d2}.row{display:flex;align-items:center;gap:2px;overflow:hidden;white-space:nowrap;width:100%;min-width:0}.pin{max-width:none;min-width:0;flex:0 1 auto}.pin .label{max-width:clamp(54px,10vw,160px)}.pin{height:100%;max-width:155px;display:flex;align-items:center;gap:5px;padding:1px 5px;color:#091a9c;text-decoration:none;font-weight:bold;border:1px solid transparent;border-radius:4px;flex-shrink:0}.pin:hover,.pin.folder{background:#eef2ff}.glyph{width:20px;height:20px;display:inline-grid;place-items:center;border:1px solid #e5e7eb;border-radius:5px;background:#fff;flex-shrink:0;overflow:hidden;color:#64748b}.glyph img{width:16px;height:16px;object-fit:contain;display:block}.glyph svg{width:15px;height:15px;display:block}.field select{background:#fffdfa}.icon-help{font-size:11px;color:#827989;margin-top:4px}.bar{width:100vw;max-width:100vw;grid-template-columns:minmax(0,1fr);padding-left:5px;padding-right:5px}.row{width:100%;min-width:0;gap:2px}.pin{max-width:none;flex:0 0 auto;flex-shrink:0}.pin .label{max-width:none;overflow:hidden;text-overflow:ellipsis}.popup,.ctx{display:none;position:fixed;background:#fff;z-index:5;border:1px solid #d9ced9;box-shadow:0 5px 20px #241b2928}.popup.show,.ctx.show{display:block}.popup{min-width:300px;max-width:min(480px,96vw);max-height:75vh;overflow:auto;border-radius:8px;padding:8px}.popitem{display:flex;align-items:center;gap:8px;width:100%;min-height:32px;padding:5px 8px;border:0;border-radius:5px;background:#fff;text-align:left;color:#16132d;font-size:13px;cursor:pointer}.popitem:hover,.ctx button:hover,.treeitem:hover{background:#f0edff}.popname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sub{font-size:10px;color:#8c8495}.ctx{min-width:210px;padding:5px;border-radius:8px}.ctx button{display:block;width:100%;text-align:left;background:#fff;border:0;border-radius:5px;padding:8px 10px;cursor:pointer;font:12px Arial}.sep{height:1px;background:#eee5eb;margin:4px}.bg{display:none;position:fixed;inset:0;background:#21171088;align-items:center;justify-content:center;padding:12px;z-index:10}.bg.show{display:flex}.modal{background:#fffdfa;border-radius:10px;padding:16px;width:min(560px,100%);max-height:90vh;overflow:auto}.field{display:block;margin:10px 0}.field span{display:block;font-weight:bold;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;padding:7px;border:1px solid #e7d8d1;border-radius:5px}.btn{background:white;border:1px solid #e7d8d1;border-radius:5px;padding:5px 8px;cursor:pointer}.actions{display:flex;gap:6px;justify-content:flex-end;margin-top:12px}.toast{display:none;position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#222;color:white;padding:8px 12px;border-radius:6px;z-index:20}.toast.show{display:block}.tree{max-height:55vh;overflow:auto}.pin[draggable="true"]{cursor:grab}.pin.dragging{opacity:.35}.pin.drop-target{outline:2px dashed #5965d8}.overflowpin{background:#f4f0eb!important;color:#4a3b32!important}.treeitem{display:flex;align-items:center;gap:7px;padding:5px;border-radius:4px}.treeitem button{border:0;background:transparent;text-align:left;cursor:pointer}.treeitem .tree-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.muted{color:#827989;font-size:12px}
+*{box-sizing:border-box}body{margin:0;background:#fff8f5;color:#211d1b;font:13px Arial,sans-serif}.bar{height:7vh;min-height:43px;max-height:62px;display:grid;grid-template-rows:1fr 1fr;overflow:hidden;padding:1px 5px;border-bottom:1px solid #e5d8d2}.row{display:flex;align-items:center;gap:2px;overflow:hidden;white-space:nowrap;width:100%;min-width:0}.pin{max-width:none;min-width:0;flex:0 1 auto}.pin .label{max-width:clamp(54px,10vw,160px)}.pin{height:100%;max-width:155px;display:flex;align-items:center;gap:5px;padding:1px 5px;color:#091a9c;text-decoration:none;font-weight:bold;border:1px solid transparent;border-radius:4px;flex-shrink:0}.pin:hover,.pin.folder{background:#eef2ff}.glyph{width:20px;height:20px;display:inline-grid;place-items:center;border:1px solid #e5e7eb;border-radius:5px;background:#fff;flex-shrink:0;overflow:hidden;color:#64748b}.glyph img{width:16px;height:16px;object-fit:contain;display:block}.glyph svg{width:15px;height:15px;display:block}.field select{background:#fffdfa}.icon-help{font-size:11px;color:#827989;margin-top:4px}.bar{width:100vw;max-width:100vw;grid-template-columns:minmax(0,1fr);padding-left:5px;padding-right:5px}.row{width:100%;min-width:0;gap:2px}.pin{max-width:none;flex:0 0 auto;flex-shrink:0}.pin .label{max-width:none;overflow:hidden;text-overflow:ellipsis}.popup,.ctx{display:none;position:fixed;background:#fff;z-index:5;border:1px solid #d9ced9;box-shadow:0 5px 20px #241b2928}.popup.show,.ctx.show{display:block}.popup{min-width:300px;max-width:min(480px,96vw);max-height:75vh;overflow:auto;border-radius:8px;padding:8px}.popitem{display:flex;align-items:center;gap:8px;width:100%;min-height:32px;padding:5px 8px;border:0;border-radius:5px;background:#fff;text-align:left;color:#16132d;font-size:13px;cursor:pointer}.popitem:hover,.ctx button:hover,.treeitem:hover{background:#f0edff}.popname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sub{font-size:10px;color:#8c8495}.ctx{min-width:210px;padding:5px;border-radius:8px}.ctx button{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:#fff;border:0;border-radius:5px;padding:8px 10px;cursor:pointer;font:12px Arial;color:#211d1b}.menu-icon{display:inline-grid;place-items:center;width:18px;height:18px;flex:0 0 18px;color:#7465a8}.menu-icon svg,.edit-btn svg,.pin-edit svg{width:16px;height:16px;display:block}.popitem{position:relative}.popitem .edit-btn{margin-left:auto;opacity:0;pointer-events:none;transition:opacity .12s ease}.popitem:hover .edit-btn,.popitem:focus-within .edit-btn{opacity:1;pointer-events:auto}.edit-btn{display:inline-grid;place-items:center;width:27px;height:27px;flex:0 0 27px;padding:4px;border:1px solid transparent;border-radius:5px;background:transparent;color:#625780;cursor:pointer}.edit-btn:hover{background:#e9e5ff;border-color:#d7cff8}.pin{position:relative;padding-right:5px}.pin-edit{position:absolute;right:3px;top:50%;transform:translateY(-50%);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:4px;background:#fff;color:#5e5483;opacity:0;pointer-events:none;cursor:pointer;z-index:2}.pin:hover .pin-edit,.pin:focus-visible .pin-edit{opacity:1;pointer-events:auto}.pin-edit:hover{background:#ded8ff}.treeitem .edit-btn{opacity:0}.treeitem:hover .edit-btn,.treeitem:focus-within .edit-btn{opacity:1}.ctx button:focus-visible,.edit-btn:focus-visible,.pin-edit:focus-visible{outline:2px solid #7868cf;outline-offset:1px}.sep{height:1px;background:#eee5eb;margin:4px}.bg{display:none;position:fixed;inset:0;background:#21171088;align-items:center;justify-content:center;padding:12px;z-index:10}.bg.show{display:flex}.modal{background:#fffdfa;border-radius:10px;padding:16px;width:min(560px,100%);max-height:90vh;overflow:auto}.field{display:block;margin:10px 0}.field span{display:block;font-weight:bold;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;padding:7px;border:1px solid #e7d8d1;border-radius:5px}.btn{background:white;border:1px solid #e7d8d1;border-radius:5px;padding:5px 8px;cursor:pointer}.actions{display:flex;gap:6px;justify-content:flex-end;margin-top:12px}.toast{display:none;position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#222;color:white;padding:8px 12px;border-radius:6px;z-index:20}.toast.show{display:block}.tree{max-height:55vh;overflow:auto}.pin[draggable="true"]{cursor:grab}.pin.dragging{opacity:.35}.pin.drop-target{outline:2px dashed #5965d8}.overflowpin{background:#f4f0eb!important;color:#4a3b32!important}.treeitem{display:flex;align-items:center;gap:7px;padding:5px;border-radius:4px}.treeitem button{border:0;background:transparent;text-align:left;cursor:pointer}.treeitem .tree-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.muted{color:#827989;font-size:12px}
 .foldernode{margin-left:12px;border-left:1px dashed #d9ced9;padding-left:6px;display:none}.foldernode.open{display:block}
 </style>
 <body>
-<section class="bar" id="bar" aria-label="Lesezeichen-Symbolleiste">
+<section class="bar" id="bar" aria-label="Bookmarks toolbar">
   <div class="row" id="r1"></div>
   <div class="row" id="r2"></div>
 </section>
@@ -22,7 +22,7 @@
 <div class="ctx" id="ctx"></div>
 <div class="bg" id="bg"><section class="modal" id="modal"></section></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<div id="app-status" style="position:fixed;right:8px;bottom:8px;z-index:4;font:11px Arial,sans-serif;color:#756b68;background:#fffdfa;border:1px solid #eaded8;border-radius:99px;padding:4px 8px;opacity:.92" title="App-Status">Lockmark · lokal</div>
+<div id="app-status" style="position:fixed;right:8px;bottom:8px;z-index:4;font:11px Arial,sans-serif;color:#756b68;background:#fffdfa;border:1px solid #eaded8;border-radius:99px;padding:4px 8px;opacity:.92" title="App status">Lockmark · Local</div>
 
 <script>
 // --- 1. REPOSITORY SCHICHT (Speicher, Migration & Versionierung) ---
@@ -33,7 +33,7 @@ class BookmarkRepository {
 
   load() {
     try {
-      // 1. Prüfen, ob im neuen Speicherort bereits Daten liegen
+      // 1. Prüfen, ob im neuen Location bereits Daten liegen
       let raw = localStorage.getItem(this.storageKey);
       if (raw) {
         let data = JSON.parse(raw);
@@ -71,7 +71,7 @@ class BookmarkRepository {
 
       return { version: 1, items: [] };
     } catch (e) {
-      console.error("Ladefehler:", e);
+      console.error("Load error:", e);
       return { version: 1, items: [] };
     }
   }
@@ -160,7 +160,7 @@ class BookmarkManager {
   }
 }
 
-// --- 3. UI SCHICHT (Kompakte Symbolleiste) ---
+// --- 3. UI LAYER (Compact toolbar) ---
 class ToolbarUI {
   constructor(manager) {
     this.manager = manager;
@@ -200,7 +200,7 @@ class ToolbarUI {
     chosen.forEach((arr, i) => arr.forEach(x => rows[i].append(this.createPinElement(x))));
     if (overflow.length) {
       let a = document.createElement("a"); a.href = "#"; a.className = "pin overflowpin"; a.style.flex = "0 0 auto";
-      a.innerHTML = '<span class="label">≫</span>'; a.title = "Weitere Lesezeichen";
+      a.innerHTML = '<span class="label">≫</span>'; a.title = "More bookmarks";
       a.onclick = e => { e.preventDefault(); this.toggleOverflow(a, overflow.map(x => x.id)); };
       rows[1].append(a);
     }
@@ -210,7 +210,11 @@ class ToolbarUI {
     let a = document.createElement("a");
     a.className = "pin" + (isF(x) ? " folder" : "");
     a.href = isF(x) ? "#" : x.url; a.draggable = true; a.dataset.id = x.id;
-    a.innerHTML = `<span class="glyph">${iconMarkup(x)}</span><span class="label">${esc(x.title)}${isF(x)?" ▾":""}</span>`;
+    a.innerHTML = `<span class="glyph">${iconMarkup(x)}</span><span class="label">${esc(x.title)}${isF(x)?" ▾":""}</span><span class="pin-edit" role="button" tabindex="0" title="Edit item" aria-label="Edit ${esc(x.title)}">${uiIcon("pencil")}</span>`;
+    const editControl = a.querySelector(".pin-edit");
+    const editItem = e => { e.preventDefault(); e.stopPropagation(); openEditModal(this.manager.findById(x.id)); };
+    editControl.addEventListener("click", editItem);
+    editControl.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") editItem(e); });
     
     if (isF(x)) a.onclick = e => { e.preventDefault(); this.toggleFolderMenu(x, a); };
     else { a.target = "_blank"; a.rel = "noopener"; }
@@ -240,7 +244,7 @@ class ToolbarUI {
 
   buildRecursiveTree(parentId) {
     let items = this.manager.getKids(parentId).sort((a, b) => a.title.localeCompare(b.title));
-    if (!items.length) return '<div class="muted" style="padding:6px 12px">Ordner ist leer</div>';
+    if (!items.length) return '<div class="muted" style="padding:6px 12px">This folder is empty</div>';
     
     return items.map(x => {
       let icon = iconMarkup(x);
@@ -249,8 +253,8 @@ class ToolbarUI {
           <div class="popitem" data-folder-toggle="${x.id}">
             <span class="glyph">${icon}</span>
             <span class="popname">${esc(x.title)}</span>
-            <span class="sub">${this.manager.getKids(x.id).length} Einträge ▾</span>
-            <button class="btn" data-edit="${x.id}" onclick="event.stopPropagation()">⋯</button>
+            <span class="sub">${this.manager.getKids(x.id).length} items ▾</span>
+            <button class="edit-btn" data-edit="${x.id}" title="Edit item" aria-label="Edit ${esc(x.title)}" onclick="event.stopPropagation()">${uiIcon("pencil")}</button>
           </div>
           <div class="foldernode" id="sub_${x.id}">${this.buildRecursiveTree(x.id)}</div>
         </div>`;
@@ -259,10 +263,10 @@ class ToolbarUI {
           <span class="glyph">${icon}</span>
           <span class="popname">${esc(x.title)}</span>
           <span class="sub">${esc(host(x.url))}</span>
-          <button class="btn" data-edit="${x.id}" onclick="event.stopPropagation()">⋯</button>
+          <button class="edit-btn" data-edit="${x.id}" title="Edit item" aria-label="Edit ${esc(x.title)}" onclick="event.stopPropagation()">${uiIcon("pencil")}</button>
         </div>`;
       }
-    }).join('') + `<div class="sep"></div><button class="ctxitem" data-add="${parentId}">＋ Lesezeichen hinzufügen</button><button class="ctxitem" data-folder="${parentId}">＋ Unterordner erstellen</button>`;
+    }).join('') + `<div class="sep"></div><button class="ctxitem" data-add="${parentId}">＋ Add bookmark</button><button class="ctxitem" data-folder="${parentId}">＋ Create subfolder</button>`;
   }
 
   toggleFolderMenu(f, anchor) {
@@ -282,7 +286,7 @@ class ToolbarUI {
     p.style.left = Math.max(5, Math.min(r.left, innerWidth - 320)) + "px";
     p.style.top = Math.min(r.bottom, innerHeight - 100) + "px";
     let arr = ids.map(id => this.manager.findById(id)).filter(Boolean);
-    p.innerHTML = arr.map(x => `<div class="popitem" data-open="${x.id}"><span class="glyph">${iconMarkup(x)}</span><span class="popname">${esc(x.title)}</span><button class="btn" data-edit="${x.id}" onclick="event.stopPropagation()">⋯</button></div>`).join("") + '<div class="sep"></div><button class="ctxitem" data-all="1">Alle Lesezeichen anzeigen…</button>';
+    p.innerHTML = arr.map(x => `<div class="popitem" data-open="${x.id}"><span class="glyph">${iconMarkup(x)}</span><span class="popname">${esc(x.title)}</span><button class="edit-btn" data-edit="${x.id}" title="Edit item" aria-label="Edit ${esc(x.title)}" onclick="event.stopPropagation()">${uiIcon("pencil")}</button></div>`).join("") + '<div class="sep"></div><button class="ctxitem" data-all="1">Show all bookmarks…</button>';
     p.classList.add("show");
     this.wirePopupTree();
     p.querySelectorAll("[data-all]").forEach(b => b.onclick = showAllBookmarks);
@@ -311,10 +315,10 @@ function readShareState() {
   const params = new URLSearchParams(location.hash.slice(1));
   if (!params.has("key") || !params.has("vault")) return null;
   try { return { key: params.get("key"), vault: params.get("vault"), config: params.has("config") ? JSON.parse(new TextDecoder().decode(unb64u(params.get("config")))) : defaultSyncConfig() }; }
-  catch (e) { console.error("Ungültiger Lockmark-Link",e); return null; }
+  catch (e) { console.error("Invalid Lockmark link",e); return null; }
 }
 function defaultSyncConfig() {
-  return { version:1, provider:"supabase", url:"", publishableKey:"", storage:{table:"user_storage",idColumn:"id",payloadColumn:"payload",updatedAtColumn:"updated_at"}, realtime:{enabled:true}, note:"Nur einen öffentlichen publishable/anon-Key verwenden, niemals service_role." };
+  return { version:1, provider:"supabase", url:"", publishableKey:"", storage:{table:"user_storage",idColumn:"id",payloadColumn:"payload",updatedAtColumn:"updated_at"}, realtime:{enabled:true}, note:"Use only a public publishable/anon key. Never use service_role." };
 }
 function setShareState(state) {
   const q = new URLSearchParams(); q.set("config",b64u(new TextEncoder().encode(JSON.stringify(state.config)))); q.set("vault",state.vault); q.set("key",state.key);
@@ -338,7 +342,7 @@ class LockmarkSync {
   ready() { const c=this.state.config; return c && ((c.provider==="supabase" && c.url && c.publishableKey) || (c.provider==="rest" && c.readUrl && c.writeUrl)); }
   async start() {
     if(this.started) return; this.started=true;
-    if(!this.ready()) { this.status("lokal · Sync konfigurieren"); return; }
+    if(!this.ready()) { this.status("Local · Configure sync"); return; }
     try {
       if(this.state.config.provider==="supabase") await this.startSupabase();
       else if(this.state.config.provider==="rest") await this.startRest();
@@ -374,7 +378,7 @@ class LockmarkSync {
     const raw=row[payloadCol]; if(!raw) return;
     if(raw===this.lastCipher) { this.lastRemoteAt=Math.max(this.lastRemoteAt,stamp); return; }
     const data=await this.decrypt(raw);
-    if(!Array.isArray(data.items)) throw Error("Synchronisierte Daten sind ungültig");
+    if(!Array.isArray(data.items)) throw Error("Synced data is invalid");
     this.lastRemoteAt=stamp; this.lastCipher=raw; this.applyingRemote=true;
     try { bm.items=data.items; repo.save(bm.items); toolbarUI.render(); }
     finally { this.applyingRemote=false; }
@@ -382,7 +386,7 @@ class LockmarkSync {
   }
   localChanged(items) {
     if(this.applyingRemote || !this.ready()) return;
-    clearTimeout(this.debounce); this.debounce=setTimeout(()=>this.uploadCurrent().catch(e=>{console.error(e);this.status("Upload fehlgeschlagen");}),500);
+    clearTimeout(this.debounce); this.debounce=setTimeout(()=>this.uploadCurrent().catch(e=>{console.error(e);this.status("Upload failed");}),500);
   }
   async uploadCurrent() {
     if(!this.ready() || this.applyingRemote) return;
@@ -419,16 +423,16 @@ window.lockmarkSync=new LockmarkSync(initialShare);
 function openSyncSettings() {
   const st=window.lockmarkSync.state;
   const sample=JSON.stringify(st.config,null,2);
-  modal(`<h3>Synchronisierung & Teilen</h3><p class="muted">Der Verschlüsselungsschlüssel wird automatisch erzeugt und bleibt im URL-Fragment. Der Server erhält nur verschlüsselte Lesezeichen. Wer den vollständigen Link besitzt, kann auf diesen gemeinsamen Bestand zugreifen.</p><label class="field"><span>Backend-Konfiguration (JSON)</span><textarea id="sync-json" rows="13" style="width:100%;font:12px ui-monospace,monospace;padding:8px;border:1px solid #e7d8d1;border-radius:5px;resize:vertical">${esc(sample)}</textarea></label><p class="muted">Supabase: Projekt-URL und öffentlicher publishable/anon-Key. Niemals service_role verwenden. Tabelle benötigt die konfigurierten Spalten; für das Standardschema siehe Anleitung in der ZIP. Provider „rest“ verwendet readUrl/writeUrl mit {id}; der REST-Server muss JSON mit payload liefern und PUT/POST zum Schreiben unterstützen.</p><div class="actions" style="justify-content:space-between"><button class="btn" id="new-key">Neuen Schlüssel erzeugen</button><span><button class="btn" id="sync-cancel">Schließen</button> <button class="btn" id="sync-save">Konfiguration speichern</button></span></div><div class="actions"><button class="btn" id="copy-link">🔗 Teilen-Link kopieren</button><button class="btn" id="copy-config">JSON kopieren</button></div>`);
+  modal(`<h3>Sync & Sharing</h3><p class="muted">The encryption key is generated automatically and stays in the URL fragment. The server receives encrypted bookmarks only. Anyone with the full link can access this shared vault.</p><label class="field"><span>Backend configuration (JSON)</span><textarea id="sync-json" rows="13" style="width:100%;font:12px ui-monospace,monospace;padding:8px;border:1px solid #e7d8d1;border-radius:5px;resize:vertical">${esc(sample)}</textarea></label><p class="muted">Supabase: Project URL and public publishable/anon key. Never use service_role. The table must contain the configured columns; see README for the default schema. The "rest" provider uses readUrl/writeUrl with {id}; the REST server must return JSON with payload and support PUT/POST for writes.</p><div class="actions" style="justify-content:space-between"><button class="btn" id="new-key">Generate new key</button><span><button class="btn" id="sync-cancel">Close</button> <button class="btn" id="sync-save">Save configuration</button></span></div><div class="actions"><button class="btn" id="copy-link">🔗 Copy share link</button><button class="btn" id="copy-config">Copy JSON</button></div>`);
   document.getElementById("sync-cancel").onclick=closeModal;
   document.getElementById("sync-save").onclick=async()=>{
     try { const cfg=JSON.parse(document.getElementById("sync-json").value); if(!cfg||typeof cfg!=="object"||!cfg.provider) throw Error("provider fehlt");
       st.config=cfg; setShareState(st); closeModal(); window.lockmarkSync=new LockmarkSync(st); await window.lockmarkSync.start(); toast("Konfiguration gespeichert");
     } catch(e) { toast("JSON/Sync-Fehler: "+e.message); }
   };
-  document.getElementById("new-key").onclick=()=>{if(!confirm("Neuer Schlüssel erstellt einen neuen, getrennten Lesezeichenbestand. Bestehende Sync-Daten bleiben auf dem Server."))return; st.key=randomToken(32);st.vault=randomToken(32);setShareState(st);window.lockmarkSync=new LockmarkSync(st);document.getElementById("sync-json").value=JSON.stringify(st.config,null,2);toast("Neuer Schlüssel und neuer Speicher erstellt");};
-  document.getElementById("copy-link").onclick=()=>{setShareState(st);navigator.clipboard?.writeText(location.href).then(()=>toast("Teilen-Link kopiert")).catch(()=>toast("Link kopieren nicht möglich – URL aus der Adresszeile kopieren"));};
-  document.getElementById("copy-config").onclick=()=>navigator.clipboard?.writeText(document.getElementById("sync-json").value).then(()=>toast("JSON kopiert"));
+  document.getElementById("new-key").onclick=()=>{if(!confirm("Creating a new key creates a separate bookmark vault. Existing sync data remains on the server."))return; st.key=randomToken(32);st.vault=randomToken(32);setShareState(st);window.lockmarkSync=new LockmarkSync(st);document.getElementById("sync-json").value=JSON.stringify(st.config,null,2);toast("New key and vault created");};
+  document.getElementById("copy-link").onclick=()=>{setShareState(st);navigator.clipboard?.writeText(location.href).then(()=>toast("Share link copied")).catch(()=>toast("Could not copy link — copy it from the address bar"));};
+  document.getElementById("copy-config").onclick=()=>navigator.clipboard?.writeText(document.getElementById("sync-json").value).then(()=>toast("JSON copied"));
 }
 
 // --- INITIALISIERUNG & GLOBALE HILFSFUNKTIONEN ---
@@ -441,8 +445,8 @@ const esc = s => String(s ?? "" ).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&l
       isF = x => !!x && x.type === "folder",
       sym = x => x ? (x.glyph || (isF(x) ? "📁" : "")) : "";
 
-// Icons: eigene Icons haben Vorrang, dann Ordner-Symbol bzw. direktes Website-Favicon.
-// Es wird kein externer Favicon-Aggregator verwendet; fehlende Icons fallen lokal zurück.
+// Icons: eigene Icons haben Vorrang, dann Folder-Symbol bzw. direktes Website-Favicon.
+// No external favicon aggregator is used; missing icons fall back locally.
 function iconMarkup(x) {
   if (!x) return globeIcon();
   if (x.iconUrl) return `<img data-custom-icon="1" src="${esc(x.iconUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
@@ -459,7 +463,7 @@ function iconMarkup(x) {
 }
 function globeIcon() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>'; }
 function folderIcon() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H10l2 2h7.5A1.5 1.5 0 0 1 21 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/></svg>'; }
-// Favicon-Fehler abfangen: zuerst Apple-Touch-Icon, danach neutrales lokales SVG.
+// Handle favicon errors: try the Apple touch icon, then a neutral local SVG.
 document.addEventListener("error", event => {
   const img = event.target;
   if (!(img instanceof HTMLImageElement)) return;
@@ -491,33 +495,55 @@ function hidePop() { document.getElementById("popup").classList.remove("show"); 
 function closeModal() { document.getElementById("bg").classList.remove("show"); }
 function modal(s) { document.getElementById("modal").innerHTML = s; document.getElementById("bg").classList.add("show"); }
 
+function uiIcon(name) {
+  const paths = {
+    "bookmark-plus": '<path d="M6 4.75A1.75 1.75 0 0 1 7.75 3h8.5A1.75 1.75 0 0 1 18 4.75V13l-6-3-6 3z"/><path d="M19 16v6m-3-3h6"/>',
+    "folder-plus": '<path d="M3 7.5A1.5 1.5 0 0 1 4.5 6H10l2 2h7.5A1.5 1.5 0 0 1 21 9.5v8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/><path d="M12 11v6m-3-3h6"/>',
+    "library": '<path d="M4 5.5 8 4l4 1.5v14L8 18l-4 1.5zM12 5.5 16 4l4 1.5v14L16 18l-4 1.5"/>',
+    "link": '<path d="M10 13.5 14 9.5"/><path d="M8.5 15H7a4 4 0 0 1 0-8h4M15.5 9H17a4 4 0 0 1 0 8h-4"/>',
+    "upload": '<path d="M12 16V4m-4 4 4-4 4 4"/><path d="M5 14v5h14v-5"/>',
+    "download": '<path d="M12 4v12m-4-4 4 4 4-4"/><path d="M5 17v3h14v-3"/>',
+    "pencil": '<path d="m15 5 4 4M4 20l4.2-.8L19 8.4 15.6 5 4.8 15.8z"/>',
+    "trash": '<path d="M4 7h16M10 11v6m4-6v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+    "plus": '<path d="M12 5v14M5 12h14"/>',
+    "x": '<path d="m6 6 12 12M18 6 6 18"/>',
+    "save": '<path d="M5 3h12l3 3v15H4V3z"/><path d="M8 3v6h8V3M8 21v-7h8v7"/>',
+    "settings": '<circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.7a8 8 0 0 1-1.8 1l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.8-1l-1.7.7-1.4-2.4 1.4-1.1a7 7 0 0 1 0-2l-1.4-1.1 1.4-2.4 1.7.7a8 8 0 0 1 1.8-1l.3-1.8h2.8l.3 1.8a8 8 0 0 1 1.8 1l1.7-.7 1.4 2.4-1.4 1.1a7 7 0 0 1 0 2z"/>',
+    "external": '<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v6H4V5h6"/>',
+    "folder": '<path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H10l2 2h7.5A1.5 1.5 0 0 1 21 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/>'
+  };
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.folder}</svg>`;
+}
+
 function showContextMenu(x, y, item = null) {
-  let c = document.getElementById("ctx");
-  c.innerHTML = `<button data-act="link">＋ Neues Lesezeichen…</button><button data-act="folder">📁 Neuen Ordner…</button><div class="sep"></div><button data-act="all">Alle Lesezeichen anzeigen…</button><button data-act="sync">🔗 Synchronisierung / Teilen…</button><button data-act="import">Lesezeichen importieren…</button><button data-act="export">Lesezeichen exportieren…</button>${item?'<div class="sep"></div><button data-act="edit">Eintrag bearbeiten…</button><button data-act="remove">Aus Leiste entfernen</button>':""}`;
-  c.style.left = Math.min(x, innerWidth - 220) + "px";
-  c.style.top = Math.min(y, innerHeight - 210) + "px";
+  const c = document.getElementById("ctx");
+  const action = (name, icon, label) => `<button data-act="${name}"><span class="menu-icon">${uiIcon(icon)}</span><span>${label}</span></button>`;
+  c.innerHTML = `${action("link", "bookmark-plus", "New bookmark…")}${action("folder", "folder-plus", "New folder…")}<div class="sep"></div>${action("all", "library", "Show all bookmarks…")}${action("sync", "link", "Sync & sharing…")}${action("import", "upload", "Import bookmarks…")}${action("export", "download", "Export bookmarks…")}${item ? `<div class="sep"></div>${action("edit", "pencil", "Edit item…")}${action("remove", "trash", "Remove from toolbar")}` : ""}`;
+  c.style.left = Math.max(6, Math.min(x, innerWidth - 245)) + "px";
+  c.style.top = Math.max(6, Math.min(y, innerHeight - (item ? 310 : 260))) + "px";
   c.classList.add("show");
   c.querySelectorAll("[data-act]").forEach(b => b.onclick = () => {
-    c.classList.remove("show"); let act = b.dataset.act;
+    c.classList.remove("show");
+    const act = b.dataset.act;
     if (act === "link") openEditModal();
     if (act === "folder") openEditModal(null, true);
     if (act === "import") importFile();
     if (act === "export") exportFile();
     if (act === "all") showAllBookmarks();
     if (act === "sync") openSyncSettings();
-    if (act === "edit") openEditModal(item);
-    if (act === "remove") { bm.update(item.id, { bar: false }); toolbarUI.render(); }
+    if (act === "edit" && item) openEditModal(bm.findById(item.id));
+    if (act === "remove" && item) { bm.update(item.id, { bar: false }); toolbarUI.render(); }
   });
 }
 
 function openEditModal(x = null, asFolder = false, parentOverride = "") {
   let f = asFolder || isF(x), pdef = parentOverride || x?.parent || "",
-      opts = '<option value="">Lesezeichen-Symbolleiste</option>' + bm.items.filter(isF).map(o => `<option value="${o.id}" ${o.id === pdef ? "selected" : ""}>${esc(o.title)}</option>`).join("");
+      opts = '<option value="">Bookmarks toolbar</option>' + bm.items.filter(isF).map(o => `<option value="${o.id}" ${o.id === pdef ? "selected" : ""}>${esc(o.title)}</option>`).join("");
   
-  modal(`<h3>${x ? "Eintrag bearbeiten" : f ? "Neuer Ordner" : "Neues Lesezeichen"}</h3><form id="form"><label class="field"><span>Name</span><input name="title" required value="${esc(x?.title || "")}"></label>${f ? "" : `<label class="field"><span>URL</span><input name="url" type="url" required placeholder="https://…" value="${esc(x?.url || "")}"></label>`}<label class="field"><span>Speicherort</span><select name="parent">${opts}</select></label><label class="field"><span>Symbol auswählen</span><select name="glyphPreset"><option value="">Automatisch (Website-Favicon / Ordner)</option>${[["📁","Ordner"],["📂","Geöffneter Ordner"],["⭐","Favorit"],["📚","Bücher"],["💼","Arbeit"],["🏠","Zuhause"],["🎨","Kreativ"],["🧰","Werkzeuge"],["🎵","Musik"],["🎮","Spiele"],["📰","Nachrichten"],["🛒","Shopping"],["🔒","Privat"],["☁️","Cloud"]].map(([v,n])=>`<option value="${v}" ${(x?.glyph||"")===v?"selected":""}>${v} ${n}</option>`).join("")}</select><div class="icon-help">Bei Lesezeichen wird standardmässig das Website-Icon verwendet.</div></label><label class="field"><span>Eigenes Symbol (optional)</span><input name="glyph" value="${esc(x?.glyph || "")}" placeholder="Emoji oder kurzer Text – überschreibt die Auswahl"></label><label class="field"><span>Eigenes Icon (Bild-URL, optional)</span><input name="iconUrl" type="url" placeholder="https://…/icon.png" value="${esc(x?.iconUrl || "")}"></label><label><input name="bar" type="checkbox" ${x?.bar || (!x && !pdef) ? "checked" : ""}> In Symbolleiste anzeigen</label><div class="actions">${x ? '<button type="button" class="btn" id="del">Löschen</button>' : ""}<button type="button" class="btn" id="cancel">Abbrechen</button><button class="btn" type="submit">Speichern</button></div></form>`);
+  modal(`<h3>${x ? "Edit item" : f ? "New folder" : "New bookmark"}</h3><form id="form"><label class="field"><span>Name</span><input name="title" required value="${esc(x?.title || "")}"></label>${f ? "" : `<label class="field"><span>URL</span><input name="url" type="url" required placeholder="https://…" value="${esc(x?.url || "")}"></label>`}<label class="field"><span>Location</span><select name="parent">${opts}</select></label><label class="field"><span>Choose an icon</span><select name="glyphPreset"><option value="">Automatic (website favicon / folder)</option>${[["📁","Folder"],["📂","Open folder"],["⭐","Favorite"],["📚","Books"],["💼","Work"],["🏠","Home"],["🎨","Creative"],["🧰","Tools"],["🎵","Music"],["🎮","Games"],["📰","News"],["🛒","Shopping"],["🔒","Private"],["☁️","Cloud"]].map(([v,n])=>`<option value="${v}" ${(x?.glyph||"")===v?"selected":""}>${v} ${n}</option>`).join("")}</select><div class="icon-help">Bookmarks use the website icon by default.</div></label><label class="field"><span>Custom symbol (optional)</span><input name="glyph" value="${esc(x?.glyph || "")}" placeholder="Emoji or short text — overrides the selection"></label><label class="field"><span>Custom icon (image URL, optional)</span><input name="iconUrl" type="url" placeholder="https://…/icon.png" value="${esc(x?.iconUrl || "")}"></label><label><input name="bar" type="checkbox" ${x?.bar || (!x && !pdef) ? "checked" : ""}> Show in toolbar</label><div class="actions">${x ? '<button type="button" class="btn" id="del">Delete</button>' : ""}<button type="button" class="btn" id="cancel">Cancel</button><button class="btn" type="submit">Save</button></div></form>`);
   
   document.getElementById("cancel").onclick = closeModal;
-  if (x) document.getElementById("del").onclick = () => { if (confirm("Eintrag löschen? Untereinträge werden in den Elternordner verschoben.")) { bm.remove(x.id); hidePop(); closeModal(); toolbarUI.render(); } };
+  if (x) document.getElementById("del").onclick = () => { if (confirm("Delete this item? Child items will be moved to its parent folder.")) { bm.remove(x.id); hidePop(); closeModal(); toolbarUI.render(); } };
   
   let form = document.getElementById("form");
   let urlInput = form.querySelector('[name="url"]'), titleInput = form.querySelector('[name="title"]');
@@ -533,8 +559,8 @@ function openEditModal(x = null, asFolder = false, parentOverride = "") {
   form.onsubmit = e => {
     e.preventDefault();
     let fd = new FormData(e.target), parent = String(fd.get("parent") || ""), url = f ? "" : String(fd.get("url") || "").trim();
-    if (x && (parent === x.id || (f && parent && isDescendant(parent, x.id)))) return toast("Ungültiger Speicherort: Ordner-Schleife verhindert");
-    if (!f) { try { if (!["http:", "https:"].includes(new URL(url).protocol)) throw 0; } catch { return toast("Ungültige URL"); } }
+    if (x && (parent === x.id || (f && parent && isDescendant(parent, x.id)))) return toast("Ungültiger Location: Folder-Schleife verhindert");
+    if (!f) { try { if (!["http:", "https:"].includes(new URL(url).protocol)) throw 0; } catch { return toast("Invalid URL"); } }
     
     let v = {
       title: String(fd.get("title")).trim(),
@@ -555,13 +581,13 @@ function openEditModal(x = null, asFolder = false, parentOverride = "") {
 
 function showAllBookmarks() {
   function tree(parent = "", depth = 0) {
-    return bm.getKids(parent).sort((a, b) => a.title.localeCompare(b.title)).map(x => `<div class="treeitem" style="padding-left:${8 + depth * 17}px"><span class="glyph">${iconMarkup(x)}</span><button class="tree-title" data-tree="${x.id}">${esc(x.title)}</button><span class="sub">${isF(x) ? bm.getKids(x.id).length + " Einträge" : esc(host(x.url))}</span><button class="btn" data-edit="${x.id}">⋯</button></div>${isF(x) ? tree(x.id, depth + 1) : ""}`).join("");
+    return bm.getKids(parent).sort((a, b) => a.title.localeCompare(b.title)).map(x => `<div class="treeitem" style="padding-left:${8 + depth * 17}px"><span class="glyph">${iconMarkup(x)}</span><button class="tree-title" data-tree="${x.id}">${esc(x.title)}</button><span class="sub">${isF(x) ? bm.getKids(x.id).length + " items" : esc(host(x.url))}</span><button class="edit-btn" data-edit="${x.id}" title="Edit item" aria-label="Edit ${esc(x.title)}">${uiIcon("pencil")}</button></div>${isF(x) ? tree(x.id, depth + 1) : ""}`).join("");
   }
-  modal(`<h3>Alle Lesezeichen</h3><p class="muted">Ordner und Lesezeichen aus allen Bereichen.</p><div class="tree">${tree()}</div><div class="actions"><button class="btn" id="closeall">Schließen</button></div>`);
+  modal(`<h3>All bookmarks</h3><p class="muted">Folders and bookmarks from all locations.</p><div class="tree">${tree()}</div><div class="actions"><button class="btn" id="closeall">Close</button></div>`);
   document.getElementById("closeall").onclick = closeModal;
   document.getElementById("modal").querySelectorAll("[data-tree]").forEach(b => b.onclick = () => {
     let x = bm.findById(b.dataset.tree);
-    if (isF(x)) { closeModal(); let anchor = [...document.querySelectorAll(".pin")].find(a => a.textContent.includes(x.title)); if (anchor) toolbarUI.toggleFolderMenu(x, anchor); else toast("Dieser Ordner liegt nicht direkt in der Symbolleiste."); }
+    if (isF(x)) { closeModal(); let anchor = [...document.querySelectorAll(".pin")].find(a => a.textContent.includes(x.title)); if (anchor) toolbarUI.toggleFolderMenu(x, anchor); else toast("This folder is not directly on the toolbar."); }
     else if (x) window.open(x.url, "_blank", "noopener");
   });
   document.getElementById("modal").querySelectorAll("[data-edit]").forEach(b => b.onclick = () => openEditModal(bm.findById(b.dataset.edit)));
@@ -574,10 +600,10 @@ function download(d, n, t) {
 function exportFile() { download(bm.exportData(), "lockmark-bookmarks.json", "application/json"); }
 
 function importFile() {
-  modal(`<h3>Browser-Lesezeichen importieren</h3><p>Wähle den HTML- oder JSON-Export deines Browsers.</p><label class="field"><span>Datei</span><input id="file" type="file" accept=".html,.htm,.json"></label><div class="actions"><button class="btn" id="cancel">Abbrechen</button><button class="btn" id="go">Importieren</button></div>`);
+  modal(`<h3>Import browser bookmarks</h3><p>Choose an HTML or JSON export from your browser.</p><label class="field"><span>File</span><input id="file" type="file" accept=".html,.htm,.json"></label><div class="actions"><button class="btn" id="cancel">Cancel</button><button class="btn" id="go">Import</button></div>`);
   document.getElementById("cancel").onclick = closeModal;
   document.getElementById("go").onclick = async () => {
-    let file = document.getElementById("file").files[0]; if (!file) return toast("Bitte Datei auswählen");
+    let file = document.getElementById("file").files[0]; if (!file) return toast("Please choose a file");
     try {
       let text = await file.text(), incoming = [];
       if (/\.json$/i.test(file.name)) {
@@ -604,10 +630,10 @@ function importFile() {
         }
         let root = doc.querySelector("body > dl") || doc.querySelector("dl"); if (root) parse(root, "", false);
       }
-      if (!incoming.length) throw Error("Keine Lesezeichen gefunden");
+      if (!incoming.length) throw Error("No bookmarks found");
       bm.importData(incoming);
-      closeModal(); toolbarUI.render(); toast(incoming.length + " Lesezeichen importiert");
-    } catch (e) { toast("Import fehlgeschlagen: " + e.message); }
+      closeModal(); toolbarUI.render(); toast(incoming.length + " bookmarks imported");
+    } catch (e) { toast("Import failed: " + e.message); }
   };
 }
 
@@ -626,16 +652,16 @@ if ("serviceWorker" in navigator && (location.protocol === "https:" || location.
     try {
       await navigator.serviceWorker.register("./sw.js");
       const status = document.getElementById("app-status");
-      if (status) status.textContent = "Lockmark · offlinebereit";
+      if (status) status.textContent = "Lockmark · Offline ready";
     } catch (err) {
-      console.error("Service Worker konnte nicht registriert werden:", err);
+      console.error("Could not register service worker:", err);
       const status = document.getElementById("app-status");
-      if (status) status.textContent = "Lockmark · Offline-Cache nicht aktiv";
+      if (status) status.textContent = "Lockmark · Offline cache inactive";
     }
   });
 } else {
   const status = document.getElementById("app-status");
-  if (status) status.textContent = "Lockmark · lokal (PWA via localhost/HTTPS)";
+  if (status) status.textContent = "Lockmark · Local (PWA via localhost/HTTPS)";
 }
 </script>
 </body>
