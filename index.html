@@ -412,8 +412,9 @@ class LockmarkSync {
     const row=await res.json(); if(row.payload) await this.applyRemote(row);
   }
 }
-const initialShare=readShareState() || {key:randomToken(32),vault:randomToken(32),config:defaultSyncConfig()};
-if(!readShareState()) setShareState(initialShare);
+const parsedShare = readShareState();
+const initialShare = parsedShare || {key:randomToken(32),vault:randomToken(32),config:defaultSyncConfig()};
+if (!parsedShare) setShareState(initialShare);
 window.lockmarkSync=new LockmarkSync(initialShare);
 function openSyncSettings() {
   const st=window.lockmarkSync.state;
@@ -437,8 +438,8 @@ const toolbarUI = new ToolbarUI(bm);
 
 const esc = s => String(s ?? "" ).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])),
       host = u => { try { return new URL(u).hostname.replace(/^www\./,"") } catch { return "" } },
-      isF = x => x.type === "folder",
-      sym = x => x.glyph || (isF(x) ? "📁" : host(x.url)[0] || "↗");
+      isF = x => !!x && x.type === "folder",
+      sym = x => x ? (x.glyph || (isF(x) ? "📁" : host(x.url)[0] || "↗")) : "↗";
 
 function isDescendant(candidateId, ancestorId) {
   let current = bm.findById(candidateId), seen = new Set();
@@ -525,7 +526,7 @@ function showAllBookmarks() {
   document.getElementById("modal").querySelectorAll("[data-tree]").forEach(b => b.onclick = () => {
     let x = bm.findById(b.dataset.tree);
     if (isF(x)) { closeModal(); let anchor = [...document.querySelectorAll(".pin")].find(a => a.textContent.includes(x.title)); if (anchor) toolbarUI.toggleFolderMenu(x, anchor); else toast("Dieser Ordner liegt nicht direkt in der Symbolleiste."); }
-    else window.open(x.url, "_blank", "noopener");
+    else if (x) window.open(x.url, "_blank", "noopener");
   });
   document.getElementById("modal").querySelectorAll("[data-edit]").forEach(b => b.onclick = () => openEditModal(bm.findById(b.dataset.edit)));
 }
