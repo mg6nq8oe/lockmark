@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="./icons/icon-192.png">
 <title>Lockmark – Lesezeichen</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#fff8f5;color:#211d1b;font:13px Arial,sans-serif}.bar{height:7vh;min-height:43px;max-height:62px;display:grid;grid-template-rows:1fr 1fr;overflow:hidden;padding:1px 5px;border-bottom:1px solid #e5d8d2}.row{display:flex;align-items:center;gap:2px;overflow:hidden;white-space:nowrap;width:100%;min-width:0}.pin{max-width:none;min-width:0;flex:0 1 auto}.pin .label{max-width:clamp(54px,10vw,160px)}.pin{height:100%;max-width:155px;display:flex;align-items:center;gap:5px;padding:1px 5px;color:#091a9c;text-decoration:none;font-weight:bold;border:1px solid transparent;border-radius:4px;flex-shrink:0}.pin:hover,.pin.folder{background:#eef2ff}.glyph{width:18px;height:18px;display:inline-grid;place-items:center;border:1px solid #ffb74d;border-radius:4px;background:#fff;flex-shrink:0}.bar{width:100vw;max-width:100vw;grid-template-columns:minmax(0,1fr);padding-left:5px;padding-right:5px}.row{width:100%;min-width:0;gap:2px}.pin{max-width:none;flex:0 0 auto;flex-shrink:0}.pin .label{max-width:none;overflow:hidden;text-overflow:ellipsis}.popup,.ctx{display:none;position:fixed;background:#fff;z-index:5;border:1px solid #d9ced9;box-shadow:0 5px 20px #241b2928}.popup.show,.ctx.show{display:block}.popup{min-width:300px;max-width:min(480px,96vw);max-height:75vh;overflow:auto;border-radius:8px;padding:8px}.popitem{display:flex;align-items:center;gap:8px;width:100%;min-height:32px;padding:5px 8px;border:0;border-radius:5px;background:#fff;text-align:left;color:#16132d;font-size:13px;cursor:pointer}.popitem:hover,.ctx button:hover,.treeitem:hover{background:#f0edff}.popname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sub{font-size:10px;color:#8c8495}.ctx{min-width:210px;padding:5px;border-radius:8px}.ctx button{display:block;width:100%;text-align:left;background:#fff;border:0;border-radius:5px;padding:8px 10px;cursor:pointer;font:12px Arial}.sep{height:1px;background:#eee5eb;margin:4px}.bg{display:none;position:fixed;inset:0;background:#21171088;align-items:center;justify-content:center;padding:12px;z-index:10}.bg.show{display:flex}.modal{background:#fffdfa;border-radius:10px;padding:16px;width:min(560px,100%);max-height:90vh;overflow:auto}.field{display:block;margin:10px 0}.field span{display:block;font-weight:bold;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;padding:7px;border:1px solid #e7d8d1;border-radius:5px}.btn{background:white;border:1px solid #e7d8d1;border-radius:5px;padding:5px 8px;cursor:pointer}.actions{display:flex;gap:6px;justify-content:flex-end;margin-top:12px}.toast{display:none;position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#222;color:white;padding:8px 12px;border-radius:6px;z-index:20}.toast.show{display:block}.tree{max-height:55vh;overflow:auto}.pin[draggable="true"]{cursor:grab}.pin.dragging{opacity:.35}.pin.drop-target{outline:2px dashed #5965d8}.overflowpin{background:#f4f0eb!important;color:#4a3b32!important}.treeitem{display:flex;align-items:center;gap:7px;padding:5px;border-radius:4px}.treeitem button{border:0;background:transparent;text-align:left;cursor:pointer}.treeitem .tree-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.muted{color:#827989;font-size:12px}
+*{box-sizing:border-box}body{margin:0;background:#fff8f5;color:#211d1b;font:13px Arial,sans-serif}.bar{height:7vh;min-height:43px;max-height:62px;display:grid;grid-template-rows:1fr 1fr;overflow:hidden;padding:1px 5px;border-bottom:1px solid #e5d8d2}.row{display:flex;align-items:center;gap:2px;overflow:hidden;white-space:nowrap;width:100%;min-width:0}.pin{max-width:none;min-width:0;flex:0 1 auto}.pin .label{max-width:clamp(54px,10vw,160px)}.pin{height:100%;max-width:155px;display:flex;align-items:center;gap:5px;padding:1px 5px;color:#091a9c;text-decoration:none;font-weight:bold;border:1px solid transparent;border-radius:4px;flex-shrink:0}.pin:hover,.pin.folder{background:#eef2ff}.glyph{width:20px;height:20px;display:inline-grid;place-items:center;border:1px solid #e5e7eb;border-radius:5px;background:#fff;flex-shrink:0;overflow:hidden;color:#64748b}.glyph img{width:16px;height:16px;object-fit:contain;display:block}.glyph svg{width:15px;height:15px;display:block}.field select{background:#fffdfa}.icon-help{font-size:11px;color:#827989;margin-top:4px}.bar{width:100vw;max-width:100vw;grid-template-columns:minmax(0,1fr);padding-left:5px;padding-right:5px}.row{width:100%;min-width:0;gap:2px}.pin{max-width:none;flex:0 0 auto;flex-shrink:0}.pin .label{max-width:none;overflow:hidden;text-overflow:ellipsis}.popup,.ctx{display:none;position:fixed;background:#fff;z-index:5;border:1px solid #d9ced9;box-shadow:0 5px 20px #241b2928}.popup.show,.ctx.show{display:block}.popup{min-width:300px;max-width:min(480px,96vw);max-height:75vh;overflow:auto;border-radius:8px;padding:8px}.popitem{display:flex;align-items:center;gap:8px;width:100%;min-height:32px;padding:5px 8px;border:0;border-radius:5px;background:#fff;text-align:left;color:#16132d;font-size:13px;cursor:pointer}.popitem:hover,.ctx button:hover,.treeitem:hover{background:#f0edff}.popname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sub{font-size:10px;color:#8c8495}.ctx{min-width:210px;padding:5px;border-radius:8px}.ctx button{display:block;width:100%;text-align:left;background:#fff;border:0;border-radius:5px;padding:8px 10px;cursor:pointer;font:12px Arial}.sep{height:1px;background:#eee5eb;margin:4px}.bg{display:none;position:fixed;inset:0;background:#21171088;align-items:center;justify-content:center;padding:12px;z-index:10}.bg.show{display:flex}.modal{background:#fffdfa;border-radius:10px;padding:16px;width:min(560px,100%);max-height:90vh;overflow:auto}.field{display:block;margin:10px 0}.field span{display:block;font-weight:bold;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;padding:7px;border:1px solid #e7d8d1;border-radius:5px}.btn{background:white;border:1px solid #e7d8d1;border-radius:5px;padding:5px 8px;cursor:pointer}.actions{display:flex;gap:6px;justify-content:flex-end;margin-top:12px}.toast{display:none;position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#222;color:white;padding:8px 12px;border-radius:6px;z-index:20}.toast.show{display:block}.tree{max-height:55vh;overflow:auto}.pin[draggable="true"]{cursor:grab}.pin.dragging{opacity:.35}.pin.drop-target{outline:2px dashed #5965d8}.overflowpin{background:#f4f0eb!important;color:#4a3b32!important}.treeitem{display:flex;align-items:center;gap:7px;padding:5px;border-radius:4px}.treeitem button{border:0;background:transparent;text-align:left;cursor:pointer}.treeitem .tree-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.muted{color:#827989;font-size:12px}
 .foldernode{margin-left:12px;border-left:1px dashed #d9ced9;padding-left:6px;display:none}.foldernode.open{display:block}
 </style>
 <body>
@@ -179,7 +179,7 @@ class ToolbarUI {
       const a = document.createElement("a");
       a.className = "pin";
       a.style.cssText = "display:flex;align-items:center;gap:5px;padding:1px 5px;flex-shrink:0;max-width:none";
-      a.innerHTML = `<span class="glyph">${x.iconUrl?`<img src="${esc(x.iconUrl)}" style="width:16px;height:16px;object-fit:contain" alt="">`:esc(sym(x))}</span><span class="label">${esc(x.title)}${isF(x)?" ▾":""}</span>`;
+      a.innerHTML = `<span class="glyph">${isF(x) ? folderIcon() : globeIcon()}</span><span class="label">${esc(x.title)}${isF(x)?" ▾":""}</span>`;
       probe.append(a);
     });
     document.body.append(probe);
@@ -210,7 +210,7 @@ class ToolbarUI {
     let a = document.createElement("a");
     a.className = "pin" + (isF(x) ? " folder" : "");
     a.href = isF(x) ? "#" : x.url; a.draggable = true; a.dataset.id = x.id;
-    a.innerHTML = `<span class="glyph">${x.iconUrl?`<img src="${esc(x.iconUrl)}" style="width:16px;height:16px;object-fit:contain" alt="">`:esc(sym(x))}</span><span class="label">${esc(x.title)}${isF(x)?" ▾":""}</span>`;
+    a.innerHTML = `<span class="glyph">${iconMarkup(x)}</span><span class="label">${esc(x.title)}${isF(x)?" ▾":""}</span>`;
     
     if (isF(x)) a.onclick = e => { e.preventDefault(); this.toggleFolderMenu(x, a); };
     else { a.target = "_blank"; a.rel = "noopener"; }
@@ -243,7 +243,7 @@ class ToolbarUI {
     if (!items.length) return '<div class="muted" style="padding:6px 12px">Ordner ist leer</div>';
     
     return items.map(x => {
-      let icon = x.iconUrl ? `<img src="${esc(x.iconUrl)}" style="width:16px;height:16px;object-fit:contain" alt="">` : esc(sym(x));
+      let icon = iconMarkup(x);
       if (isF(x)) {
         return `<div style="width:100%">
           <div class="popitem" data-folder-toggle="${x.id}">
@@ -282,7 +282,7 @@ class ToolbarUI {
     p.style.left = Math.max(5, Math.min(r.left, innerWidth - 320)) + "px";
     p.style.top = Math.min(r.bottom, innerHeight - 100) + "px";
     let arr = ids.map(id => this.manager.findById(id)).filter(Boolean);
-    p.innerHTML = arr.map(x => `<div class="popitem" data-open="${x.id}"><span class="glyph">${esc(sym(x))}</span><span class="popname">${esc(x.title)}</span><button class="btn" data-edit="${x.id}" onclick="event.stopPropagation()">⋯</button></div>`).join("") + '<div class="sep"></div><button class="ctxitem" data-all="1">Alle Lesezeichen anzeigen…</button>';
+    p.innerHTML = arr.map(x => `<div class="popitem" data-open="${x.id}"><span class="glyph">${iconMarkup(x)}</span><span class="popname">${esc(x.title)}</span><button class="btn" data-edit="${x.id}" onclick="event.stopPropagation()">⋯</button></div>`).join("") + '<div class="sep"></div><button class="ctxitem" data-all="1">Alle Lesezeichen anzeigen…</button>';
     p.classList.add("show");
     this.wirePopupTree();
     p.querySelectorAll("[data-all]").forEach(b => b.onclick = showAllBookmarks);
@@ -439,7 +439,43 @@ const toolbarUI = new ToolbarUI(bm);
 const esc = s => String(s ?? "" ).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])),
       host = u => { try { return new URL(u).hostname.replace(/^www\./,"") } catch { return "" } },
       isF = x => !!x && x.type === "folder",
-      sym = x => x ? (x.glyph || (isF(x) ? "📁" : host(x.url)[0] || "↗")) : "↗";
+      sym = x => x ? (x.glyph || (isF(x) ? "📁" : "")) : "";
+
+// Icons: eigene Icons haben Vorrang, dann Ordner-Symbol bzw. direktes Website-Favicon.
+// Es wird kein externer Favicon-Aggregator verwendet; fehlende Icons fallen lokal zurück.
+function iconMarkup(x) {
+  if (!x) return globeIcon();
+  if (x.iconUrl) return `<img data-custom-icon="1" src="${esc(x.iconUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+  if (x.glyph) return esc(x.glyph);
+  if (isF(x)) return folderIcon();
+  try {
+    const u = new URL(x.url);
+    if (u.protocol === "http:" || u.protocol === "https:") {
+      const favicon = new URL("/favicon.ico", u.origin).href;
+      return `<img data-favicon="${esc(favicon)}" data-favicon-step="0" src="${esc(favicon)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+    }
+  } catch {}
+  return globeIcon();
+}
+function globeIcon() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>'; }
+function folderIcon() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H10l2 2h7.5A1.5 1.5 0 0 1 21 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/></svg>'; }
+// Favicon-Fehler abfangen: zuerst Apple-Touch-Icon, danach neutrales lokales SVG.
+document.addEventListener("error", event => {
+  const img = event.target;
+  if (!(img instanceof HTMLImageElement)) return;
+  if (img.dataset.favicon) {
+    const step = Number(img.dataset.faviconStep || 0);
+    if (step === 0) {
+      img.dataset.faviconStep = "1";
+      try { img.src = new URL("/apple-touch-icon.png", new URL(img.dataset.favicon).origin).href; return; } catch {}
+    }
+    const holder = img.closest(".glyph");
+    if (holder) holder.innerHTML = globeIcon();
+    return;
+  }
+  // Kaputte benutzerdefinierte Icons durch ein neutrales Symbol ersetzen.
+  if (img.dataset.customIcon) { const holder = img.closest(".glyph"); if (holder) holder.innerHTML = globeIcon(); return; }
+}, true);
 
 function isDescendant(candidateId, ancestorId) {
   let current = bm.findById(candidateId), seen = new Set();
@@ -478,7 +514,7 @@ function openEditModal(x = null, asFolder = false, parentOverride = "") {
   let f = asFolder || isF(x), pdef = parentOverride || x?.parent || "",
       opts = '<option value="">Lesezeichen-Symbolleiste</option>' + bm.items.filter(isF).map(o => `<option value="${o.id}" ${o.id === pdef ? "selected" : ""}>${esc(o.title)}</option>`).join("");
   
-  modal(`<h3>${x ? "Eintrag bearbeiten" : f ? "Neuer Ordner" : "Neues Lesezeichen"}</h3><form id="form"><label class="field"><span>Name</span><input name="title" required value="${esc(x?.title || "")}"></label>${f ? "" : `<label class="field"><span>URL</span><input name="url" type="url" required placeholder="https://…" value="${esc(x?.url || "")}"></label>`}<label class="field"><span>Speicherort</span><select name="parent">${opts}</select></label><label class="field"><span>Eigenes Symbol (Emoji oder Text)</span><input name="glyph" value="${esc(x?.glyph || "")}" placeholder="z. B. 📁 oder ⭐"></label><label class="field"><span>Eigenes Icon (Bild-URL, optional)</span><input name="iconUrl" type="url" placeholder="https://…/icon.png" value="${esc(x?.iconUrl || "")}"></label><label><input name="bar" type="checkbox" ${x?.bar || (!x && !pdef) ? "checked" : ""}> In Symbolleiste anzeigen</label><div class="actions">${x ? '<button type="button" class="btn" id="del">Löschen</button>' : ""}<button type="button" class="btn" id="cancel">Abbrechen</button><button class="btn" type="submit">Speichern</button></div></form>`);
+  modal(`<h3>${x ? "Eintrag bearbeiten" : f ? "Neuer Ordner" : "Neues Lesezeichen"}</h3><form id="form"><label class="field"><span>Name</span><input name="title" required value="${esc(x?.title || "")}"></label>${f ? "" : `<label class="field"><span>URL</span><input name="url" type="url" required placeholder="https://…" value="${esc(x?.url || "")}"></label>`}<label class="field"><span>Speicherort</span><select name="parent">${opts}</select></label><label class="field"><span>Symbol auswählen</span><select name="glyphPreset"><option value="">Automatisch (Website-Favicon / Ordner)</option>${[["📁","Ordner"],["📂","Geöffneter Ordner"],["⭐","Favorit"],["📚","Bücher"],["💼","Arbeit"],["🏠","Zuhause"],["🎨","Kreativ"],["🧰","Werkzeuge"],["🎵","Musik"],["🎮","Spiele"],["📰","Nachrichten"],["🛒","Shopping"],["🔒","Privat"],["☁️","Cloud"]].map(([v,n])=>`<option value="${v}" ${(x?.glyph||"")===v?"selected":""}>${v} ${n}</option>`).join("")}</select><div class="icon-help">Bei Lesezeichen wird standardmässig das Website-Icon verwendet.</div></label><label class="field"><span>Eigenes Symbol (optional)</span><input name="glyph" value="${esc(x?.glyph || "")}" placeholder="Emoji oder kurzer Text – überschreibt die Auswahl"></label><label class="field"><span>Eigenes Icon (Bild-URL, optional)</span><input name="iconUrl" type="url" placeholder="https://…/icon.png" value="${esc(x?.iconUrl || "")}"></label><label><input name="bar" type="checkbox" ${x?.bar || (!x && !pdef) ? "checked" : ""}> In Symbolleiste anzeigen</label><div class="actions">${x ? '<button type="button" class="btn" id="del">Löschen</button>' : ""}<button type="button" class="btn" id="cancel">Abbrechen</button><button class="btn" type="submit">Speichern</button></div></form>`);
   
   document.getElementById("cancel").onclick = closeModal;
   if (x) document.getElementById("del").onclick = () => { if (confirm("Eintrag löschen? Untereinträge werden in den Elternordner verschoben.")) { bm.remove(x.id); hidePop(); closeModal(); toolbarUI.render(); } };
@@ -505,7 +541,7 @@ function openEditModal(x = null, asFolder = false, parentOverride = "") {
       url,
       type: f ? "folder" : "link",
       parent,
-      glyph: String(fd.get("glyph")).trim(),
+      glyph: String(fd.get("glyph")).trim() || String(fd.get("glyphPreset") || ""),
       iconUrl: String(fd.get("iconUrl") || "").trim(),
       bar: fd.has("bar") && !parent
     };
@@ -519,7 +555,7 @@ function openEditModal(x = null, asFolder = false, parentOverride = "") {
 
 function showAllBookmarks() {
   function tree(parent = "", depth = 0) {
-    return bm.getKids(parent).sort((a, b) => a.title.localeCompare(b.title)).map(x => `<div class="treeitem" style="padding-left:${8 + depth * 17}px"><span>${esc(sym(x))}</span><button class="tree-title" data-tree="${x.id}">${esc(x.title)}</button><span class="sub">${isF(x) ? bm.getKids(x.id).length + " Einträge" : esc(host(x.url))}</span><button class="btn" data-edit="${x.id}">⋯</button></div>${isF(x) ? tree(x.id, depth + 1) : ""}`).join("");
+    return bm.getKids(parent).sort((a, b) => a.title.localeCompare(b.title)).map(x => `<div class="treeitem" style="padding-left:${8 + depth * 17}px"><span class="glyph">${iconMarkup(x)}</span><button class="tree-title" data-tree="${x.id}">${esc(x.title)}</button><span class="sub">${isF(x) ? bm.getKids(x.id).length + " Einträge" : esc(host(x.url))}</span><button class="btn" data-edit="${x.id}">⋯</button></div>${isF(x) ? tree(x.id, depth + 1) : ""}`).join("");
   }
   modal(`<h3>Alle Lesezeichen</h3><p class="muted">Ordner und Lesezeichen aus allen Bereichen.</p><div class="tree">${tree()}</div><div class="actions"><button class="btn" id="closeall">Schließen</button></div>`);
   document.getElementById("closeall").onclick = closeModal;
