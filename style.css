@@ -1,0 +1,262 @@
+/* --- CSS Reset & Base Styles --- */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #fff8f5;
+  color: #211d1b;
+  font: 13px Arial, sans-serif;
+}
+
+/* --- Toolbar & Layout --- */
+.bar {
+  height: 7vh;
+  min-height: 43px;
+  max-height: 62px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+  padding: 1px 5px;
+  border-bottom: 1px solid #e5d8d2;
+  width: 100vw;
+  max-width: 100vw;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  min-width: 0;
+}
+
+/* --- Pins & Folders --- */
+.pin {
+  height: 100%;
+  max-width: none;
+  min-width: 0;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 5px;
+  color: #091a9c;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  position: relative;
+}
+.pin:hover, .pin.folder { background: #eef2ff; }
+.pin .label {
+  max-width: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.overflowpin {
+  background: #f4f0eb !important;
+  color: #4a3b32 !important;
+}
+
+/* --- Glyphs & Icons --- */
+.glyph {
+  width: 20px;
+  height: 20px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  background: #fff;
+  flex-shrink: 0;
+  overflow: hidden;
+  color: #64748b;
+}
+.glyph img { width: 16px; height: 16px; object-fit: contain; display: block; }
+.glyph svg { width: 15px; height: 15px; display: block; }
+
+/* --- Popups & Context Menus --- */
+.popup, .ctx {
+  display: none;
+  position: fixed;
+  background: #fff;
+  z-index: 5;
+  border: 1px solid #d9ced9;
+  box-shadow: 0 5px 20px #241b2928;
+}
+.popup.show, .ctx.show { display: block; }
+.popup {
+  min-width: 300px;
+  max-width: min(480px, 96vw);
+  max-height: 75vh;
+  overflow: auto;
+  border-radius: 8px;
+  padding: 8px;
+}
+.ctx { min-width: 210px; padding: 5px; border-radius: 8px; }
+
+.popitem, .ctxitem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 32px;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 5px;
+  background: #fff;
+  text-align: left;
+  color: #16132d;
+  font-size: 13px;
+  cursor: pointer;
+  position: relative;
+}
+.ctxitem { background: transparent; color: #4b3f8f; font: 12px Arial, sans-serif; min-height: 30px; }
+.popitem:hover, .ctx button:hover, .treeitem:hover, .ctxitem:hover { background: #f0edff; }
+
+.popname { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sub { font-size: 10px; color: #8c8495; }
+
+.ctx button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: 0;
+  border-radius: 5px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font: 12px Arial;
+  color: #211d1b;
+}
+
+/* --- Edit & Action Buttons --- */
+.menu-icon { display: inline-grid; place-items: center; width: 18px; height: 18px; flex: 0 0 18px; color: #7465a8; }
+.menu-icon svg, .edit-btn svg, .pin-edit svg { width: 16px; height: 16px; display: block; }
+
+.popitem .edit-btn, .treeitem .edit-btn {
+  margin-left: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .12s ease;
+}
+.popitem:hover .edit-btn, .popitem:focus-within .edit-btn,
+.treeitem:hover .edit-btn, .treeitem:focus-within .edit-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.edit-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  padding: 4px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: #625780;
+  cursor: pointer;
+}
+.edit-btn:hover { background: #e9e5ff; border-color: #d7cff8; }
+
+.pin-edit {
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: #fff;
+  color: #5e5483;
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+  z-index: 2;
+}
+.pin:hover .pin-edit, .pin:focus-visible .pin-edit { opacity: 1; pointer-events: auto; }
+.pin-edit:hover { background: #ded8ff; }
+
+.ctx button:focus-visible, .edit-btn:focus-visible, .pin-edit:focus-visible, .ctxitem:focus-visible {
+  outline: 2px solid #7868cf;
+  outline-offset: 1px;
+}
+
+/* --- Modals & Overlays --- */
+.sep { height: 1px; background: #eee5eb; margin: 4px; }
+.bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #21171088;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  z-index: 10;
+}
+.bg.show { display: flex; }
+.modal {
+  background: #fffdfa;
+  border-radius: 10px;
+  padding: 16px;
+  width: min(560px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+}
+
+/* --- Form Elements --- */
+.field { display: block; margin: 10px 0; }
+.field span { display: block; font-weight: bold; margin-bottom: 4px; }
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #e7d8d1;
+  border-radius: 5px;
+}
+.field select { background: #fffdfa; }
+.btn { background: white; border: 1px solid #e7d8d1; border-radius: 5px; padding: 5px 8px; cursor: pointer; }
+.actions { display: flex; gap: 6px; justify-content: flex-end; margin-top: 12px; }
+
+/* --- Tree View & Drag/Drop --- */
+.tree { max-height: 55vh; overflow: auto; }
+.pin[draggable="true"] { cursor: grab; }
+.pin.dragging { opacity: .35; }
+.pin.drop-target { outline: 2px dashed #5965d8; }
+
+.treeitem { display: flex; align-items: center; gap: 7px; padding: 5px; border-radius: 4px; }
+.treeitem button { border: 0; background: transparent; text-align: left; cursor: pointer; }
+.treeitem .tree-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.foldernode { margin-left: 12px; border-left: 1px dashed #d9ced9; padding-left: 6px; display: none; }
+.foldernode.open { display: block; }
+
+.icon-row { display: flex; align-items: center; gap: 8px; }
+.icon-row input[type=file] { flex: 1; min-width: 0; }
+.icon-row .glyph { width: 28px; height: 28px; }
+.icon-row .glyph img { width: 20px; height: 20px; }
+
+.check { display: flex; gap: 8px; align-items: flex-start; margin: 10px 0; line-height: 1.35; }
+.check input { margin-top: 2px; flex: 0 0 auto; }
+
+/* --- Toasts & Status --- */
+.toast {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  z-index: 20;
+}
+.toast.show { display: block; }
+.muted { color: #827989; font-size: 12px; }
+.icon-help { font-size: 11px; color: #827989; margin-top: 4px; }
