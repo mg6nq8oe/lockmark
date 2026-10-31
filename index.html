@@ -632,16 +632,27 @@ const esc = s => String(s ?? "" ).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&l
 
 function iconMarkup(x) {
   if (!x) return globeIcon();
-  if (x.iconUrl) return `<img data-custom-icon="1" src="${esc(x.iconUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+  
+  // 1. Wenn ein benutzerdefiniertes Icon (Base64 oder URL) da ist:
+  if (x.iconUrl) {
+    return `<img data-custom-icon="1" src="${esc(x.iconUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+  }
+  // 2. Wenn ein Emoji/Glyph gewählt wurde:
   if (x.glyph) return esc(x.glyph);
+  // 3. Wenn es ein Ordner ist:
   if (isF(x)) return folderIcon();
+
+  // 4. Automatischer Fallback für normale Links (ohne State-Mutation im Render):
   try {
     const u = new URL(x.url);
     if (u.protocol === "http:" || u.protocol === "https:") {
-      const favicon = new URL("/favicon.ico", u.origin).href;
-      return `<img data-favicon="${esc(favicon)}" data-favicon-step="0" src="${esc(favicon)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+      // Wir nutzen den externen Dienst als reinen Bild-Pfad, 
+      // ohne ihn direkt in den Storage zu schreiben:
+      const fallbackFavicon = `https://www.google.com/s2/favicons?domain=${u.hostname}&sz=32`;
+      return `<img data-favicon="${esc(fallbackFavicon)}" src="${esc(fallbackFavicon)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
     }
   } catch {}
+
   return globeIcon();
 }
 function globeIcon() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>'; }
