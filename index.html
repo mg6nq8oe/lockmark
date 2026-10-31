@@ -12,6 +12,11 @@
 <style>
 *{box-sizing:border-box}body{margin:0;background:#fff8f5;color:#211d1b;font:13px Arial,sans-serif}.bar{height:7vh;min-height:43px;max-height:62px;display:grid;grid-template-rows:1fr 1fr;overflow:hidden;padding:1px 5px;border-bottom:1px solid #e5d8d2}.row{display:flex;align-items:center;gap:2px;overflow:hidden;white-space:nowrap;width:100%;min-width:0}.pin{max-width:none;min-width:0;flex:0 1 auto}.pin .label{max-width:clamp(54px,10vw,160px)}.pin{height:100%;max-width:155px;display:flex;align-items:center;gap:5px;padding:1px 5px;color:#091a9c;text-decoration:none;font-weight:bold;border:1px solid transparent;border-radius:4px;flex-shrink:0}.pin:hover,.pin.folder{background:#eef2ff}.glyph{width:20px;height:20px;display:inline-grid;place-items:center;border:1px solid #e5e7eb;border-radius:5px;background:#fff;flex-shrink:0;overflow:hidden;color:#64748b}.glyph img{width:16px;height:16px;object-fit:contain;display:block}.glyph svg{width:15px;height:15px;display:block}.field select{background:#fffdfa}.icon-help{font-size:11px;color:#827989;margin-top:4px}.bar{width:100vw;max-width:100vw;grid-template-columns:minmax(0,1fr);padding-left:5px;padding-right:5px}.row{width:100%;min-width:0;gap:2px}.pin{max-width:none;flex:0 0 auto;flex-shrink:0}.pin .label{max-width:none;overflow:hidden;text-overflow:ellipsis}.popup,.ctx{display:none;position:fixed;background:#fff;z-index:5;border:1px solid #d9ced9;box-shadow:0 5px 20px #241b2928}.popup.show,.ctx.show{display:block}.popup{min-width:300px;max-width:min(480px,96vw);max-height:75vh;overflow:auto;border-radius:8px;padding:8px}.popitem{display:flex;align-items:center;gap:8px;width:100%;min-height:32px;padding:5px 8px;border:0;border-radius:5px;background:#fff;text-align:left;color:#16132d;font-size:13px;cursor:pointer}.popitem:hover,.ctx button:hover,.treeitem:hover{background:#f0edff}.popname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sub{font-size:10px;color:#8c8495}.ctx{min-width:210px;padding:5px;border-radius:8px}.ctx button{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:#fff;border:0;border-radius:5px;padding:8px 10px;cursor:pointer;font:12px Arial;color:#211d1b}.menu-icon{display:inline-grid;place-items:center;width:18px;height:18px;flex:0 0 18px;color:#7465a8}.menu-icon svg,.edit-btn svg,.pin-edit svg{width:16px;height:16px;display:block}.popitem{position:relative}.popitem .edit-btn{margin-left:auto;opacity:0;pointer-events:none;transition:opacity .12s ease}.popitem:hover .edit-btn,.popitem:focus-within .edit-btn{opacity:1;pointer-events:auto}.edit-btn{display:inline-grid;place-items:center;width:27px;height:27px;flex:0 0 27px;padding:4px;border:1px solid transparent;border-radius:5px;background:transparent;color:#625780;cursor:pointer}.edit-btn:hover{background:#e9e5ff;border-color:#d7cff8}.pin{position:relative;padding-right:5px}.pin-edit{position:absolute;right:3px;top:50%;transform:translateY(-50%);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:4px;background:#fff;color:#5e5483;opacity:0;pointer-events:none;cursor:pointer;z-index:2}.pin:hover .pin-edit,.pin:focus-visible .pin-edit{opacity:1;pointer-events:auto}.pin-edit:hover{background:#ded8ff}.treeitem .edit-btn{opacity:0}.treeitem:hover .edit-btn,.treeitem:focus-within .edit-btn{opacity:1}.ctx button:focus-visible,.edit-btn:focus-visible,.pin-edit:focus-visible{outline:2px solid #7868cf;outline-offset:1px}.sep{height:1px;background:#eee5eb;margin:4px}.bg{display:none;position:fixed;inset:0;background:#21171088;align-items:center;justify-content:center;padding:12px;z-index:10}.bg.show{display:flex}.modal{background:#fffdfa;border-radius:10px;padding:16px;width:min(560px,100%);max-height:90vh;overflow:auto}.field{display:block;margin:10px 0}.field span{display:block;font-weight:bold;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;padding:7px;border:1px solid #e7d8d1;border-radius:5px}.btn{background:white;border:1px solid #e7d8d1;border-radius:5px;padding:5px 8px;cursor:pointer}.actions{display:flex;gap:6px;justify-content:flex-end;margin-top:12px}.toast{display:none;position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#222;color:white;padding:8px 12px;border-radius:6px;z-index:20}.toast.show{display:block}.tree{max-height:55vh;overflow:auto}.pin[draggable="true"]{cursor:grab}.pin.dragging{opacity:.35}.pin.drop-target{outline:2px dashed #5965d8}.overflowpin{background:#f4f0eb!important;color:#4a3b32!important}.treeitem{display:flex;align-items:center;gap:7px;padding:5px;border-radius:4px}.treeitem button{border:0;background:transparent;text-align:left;cursor:pointer}.treeitem .tree-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.muted{color:#827989;font-size:12px}
 .foldernode{margin-left:12px;border-left:1px dashed #d9ced9;padding-left:6px;display:none}.foldernode.open{display:block}
+/* Neu: Aktions-Buttons im Ordner-/Overflow-Popup */
+.ctxitem{display:flex;align-items:center;gap:8px;width:100%;min-height:30px;padding:5px 8px;border:0;border-radius:5px;background:transparent;text-align:left;color:#4b3f8f;font:12px Arial,sans-serif;cursor:pointer}.ctxitem:hover{background:#f0edff}.ctxitem:focus-visible{outline:2px solid #7868cf;outline-offset:1px}
+/* Neu: Icon-Vorschau im Bearbeiten-Dialog & Einstellungen */
+.icon-row{display:flex;align-items:center;gap:8px}.icon-row input[type=file]{flex:1;min-width:0}.icon-row .glyph{width:28px;height:28px}.icon-row .glyph img{width:20px;height:20px}
+.check{display:flex;gap:8px;align-items:flex-start;margin:10px 0;line-height:1.35}.check input{margin-top:2px;flex:0 0 auto}
 </style>
 <body>
 <section class="bar" id="bar" aria-label="Bookmarks toolbar">
@@ -25,6 +30,33 @@
 <div id="app-status" role="button" tabindex="0" title="Click to open Sync & Backup Settings" style="position:fixed;right:8px;bottom:8px;z-index:4;font:11px Arial,sans-serif;color:#756b68;background:#fffdfa;border:1px solid #eaded8;border-radius:99px;padding:4px 8px;opacity:.92;cursor:pointer">Lockmark · Local</div>
 
 <script>
+// --- 0. STATUSANZEIGE (Sync-Status und Offline-Status getrennt, damit sich nichts überschreibt) ---
+const appStatus = { sync: "Local", offline: false };
+function renderAppStatus() {
+  const el = document.getElementById("app-status");
+  if (el) el.textContent = "Lockmark · " + appStatus.sync + (appStatus.offline ? " · Offline ✓" : "");
+}
+function setSyncStatus(text) { appStatus.sync = text; renderAppStatus(); }
+
+// --- 0b. LOKALE EINSTELLUNGEN (werden NICHT synchronisiert) ---
+const PREFS_KEY = "lockmark.prefs";
+const prefs = (() => {
+  try { return { externalFavicons: true, ...JSON.parse(localStorage.getItem(PREFS_KEY) || "{}") }; }
+  catch { return { externalFavicons: true }; }
+})();
+function savePrefs() { try { localStorage.setItem(PREFS_KEY, JSON.stringify(prefs)); } catch {} }
+
+// Entfernt alte, fest gespeicherte Google-Favicon-URLs (Altlast der vorherigen Version)
+function stripLegacyIcons(items) {
+  let changed = false;
+  (items || []).forEach(x => {
+    if (x && typeof x.iconUrl === "string" && /^https:\/\/www\.google\.com\/s2\/favicons/i.test(x.iconUrl)) {
+      delete x.iconUrl; delete x.iconAuto; changed = true;
+    }
+  });
+  return changed;
+}
+
 // --- 1. REPOSITORY SCHICHT (Local-First Speicher & Migration) ---
 class BookmarkRepository {
   constructor(storageKey = "lockmark.data") {
@@ -84,11 +116,32 @@ class BookmarkManager {
     let stored = this.repo.load();
     this.version = stored.version;
     this.items = stored.items;
+    this._batchDepth = 0;
+    this._dirty = false;
+    // Migration: alte Google-Favicon-URLs entfernen (nur lokal speichern, Sync folgt beim nächsten Change)
+    if (stripLegacyIcons(this.items)) this.repo.save(this.items);
   }
 
   persist() {
+    // Innerhalb von batch() nur vormerken – geschrieben wird einmal am Ende
+    if (this._batchDepth > 0) { this._dirty = true; return; }
     this.repo.save(this.items);
     if (window.lockmarkSync) window.lockmarkSync.localChanged(this.items);
+  }
+
+  // Mehrere Änderungen bündeln: genau ein localStorage-Write und ein Sync-Trigger
+  batch(fn) {
+    this._batchDepth++;
+    try { return fn(); }
+    finally {
+      this._batchDepth--;
+      if (this._batchDepth === 0 && this._dirty) { this._dirty = false; this.persist(); }
+    }
+  }
+
+  // Nächste freie Sortier-Position (immer hinter allen bestehenden Einträgen)
+  nextOrder() {
+    return this.items.reduce((m, x) => Math.max(m, Number(x.order) || 0), 0) + 1;
   }
 
   getKids(parentId = "") {
@@ -105,7 +158,7 @@ class BookmarkManager {
       id: crypto.randomUUID(),
       createdAt: now,
       updatedAt: now,
-      order: now,
+      order: Math.max(now, this.nextOrder()),
       ...itemData
     };
     this.items.push(newItem);
@@ -136,7 +189,15 @@ class BookmarkManager {
     let now = Date.now();
     let remap = new Map();
     incomingItems.filter(x => x.type === "folder").forEach(x => remap.set(x.id, crypto.randomUUID()));
-    
+    stripLegacyIcons(incomingItems);
+
+    // Importe hinten anhängen, relative Reihenfolge der Datei beibehalten
+    const base = this.nextOrder();
+    incomingItems
+      .map((x, i) => ({ x, i }))
+      .sort((a, b) => ((Number(a.x.order) || a.i) - (Number(b.x.order) || b.i)) || (a.i - b.i))
+      .forEach(({ x }, k) => { x.order = base + k; });
+
     incomingItems.forEach(x => {
       let oldId = x.id;
       let isF = x.type === "folder";
@@ -151,44 +212,52 @@ class BookmarkManager {
   }
 }
 
-// --- 3. UI LAYER (Toolbar & Menüs) mit Performance-Optimierungen ---
+// Signatur eines Pins: ändert sich, sobald sich etwas Sichtbares ändert.
+// Dient als Schlüssel für Breiten-Cache und als Kriterium, ob ein DOM-Element neu gebaut werden muss.
+function pinSig(x) {
+  return [x.title, x.type, x.url, x.glyph || "", x.iconUrl || "", x.iconAuto ? 1 : 0, prefs.externalFavicons ? 1 : 0].join("\u0001");
+}
+
+// --- 3. UI LAYER (Toolbar & Menüs) ---
 class ToolbarUI {
   constructor(manager) {
     this.manager = manager;
     this.openId = null;
-    this._cachedWidths = new Map();
+    this._cachedWidths = new Map();   // Schlüssel: pinSig
+    this._overflowEl = null;
+    this._overflowIds = [];
   }
 
   render() {
+    const bar = document.getElementById("bar");
     const pins = this.manager.items.filter(x => x.bar && !x.parent).sort((a, b) => (a.order || 0) - (b.order || 0));
     const rows = [document.getElementById("r1"), document.getElementById("r2")];
-    const available = document.getElementById("bar").clientWidth - 12;
-    
-    // 1. Breiten ermitteln (mit Caching zur Vermeidung von Layout Thrashing)
-    const probe = document.createElement("div");
-    probe.style.cssText = "position:fixed;left:-10000px;top:0;display:flex;gap:2px;white-space:nowrap;visibility:hidden;font:13px Arial,sans-serif";
-    
-    let missingPins = [];
-    pins.forEach(x => {
-      if (!this._cachedWidths.has(x.id)) {
+    const available = bar.clientWidth - 12;
+    const sigs = new Map(pins.map(x => [x.id, pinSig(x)]));
+
+    // Cache nicht unbegrenzt wachsen lassen
+    if (this._cachedWidths.size > pins.length * 3 + 50) this._cachedWidths.clear();
+
+    // 1. Breiten messen – nur für Pins, deren Signatur noch nicht im Cache ist
+    const missing = pins.filter(x => !this._cachedWidths.has(sigs.get(x.id)));
+    if (missing.length > 0) {
+      const probe = document.createElement("div");
+      probe.style.cssText = "position:fixed;left:-10000px;top:0;display:flex;gap:2px;white-space:nowrap;visibility:hidden;font:13px Arial,sans-serif";
+      const els = missing.map(x => {
         const a = document.createElement("a");
         a.className = "pin" + (isF(x) ? " folder" : "");
-        a.innerHTML = `<span class="glyph">${iconMarkup(x)}</span><span class="label">${esc(x.title)}${isF(x)?" ▾":""}</span>`;
+        a.innerHTML = `<span class="glyph">${iconMarkup(x)}</span><span class="label">${esc(x.title)}${isF(x) ? " ▾" : ""}</span>`;
         probe.append(a);
-        missingPins.push({ x, el: a });
-      }
-    });
-
-    if (missingPins.length > 0) {
-      document.body.append(probe);
-      missingPins.forEach(item => {
-        this._cachedWidths.set(item.x.id, item.el.getBoundingClientRect().width + 2);
+        return a;
       });
+      document.body.append(probe);
+      missing.forEach((x, i) => this._cachedWidths.set(sigs.get(x.id), els[i].getBoundingClientRect().width + 2));
       probe.remove();
     }
 
-    let widths = pins.map(x => this._cachedWidths.get(x.id) || 100);
-    
+    const widths = pins.map(x => this._cachedWidths.get(sigs.get(x.id)) || 100);
+
+    // 2. Auf zwei Zeilen verteilen, Rest in den Overflow
     let chosen = [[], []], used = [0, 0], overflow = [], row = 0;
     pins.forEach((x, i) => {
       let w = widths[i];
@@ -200,70 +269,55 @@ class ToolbarUI {
         let x = chosen[1].pop(); let idx = pins.indexOf(x); used[1] -= widths[idx]; overflow.unshift(x);
       }
     }
-    
-    // 2. DOM-schonendes Aktualisieren (verhindert das ständige Neuladen der Icons)
+
+    // 3. DOM abgleichen: bestehende Elemente per ID wiederverwenden (Icons laden nicht neu),
+    //    nur bei geänderter Signatur neu bauen, Reihenfolge exakt herstellen.
+    const existing = new Map();
+    rows.forEach(r => r.querySelectorAll(".pin[data-id]").forEach(el => existing.set(el.dataset.id, el)));
+
+    this._overflowIds = overflow.map(x => x.id);
+
     rows.forEach((r, i) => {
-      const targetPins = chosen[i];
-      const existingPins = [...r.querySelectorAll('.pin:not(.overflowpin)')];
-      
-      targetPins.forEach((x, index) => {
-        let existingEl = existingPins[index];
-        if (existingEl && existingEl.dataset.id === x.id) {
-          const labelEl = existingEl.querySelector('.label');
-          const expectedText = esc(x.title) + (isF(x) ? " ▾" : "");
-          if (labelEl && labelEl.textContent !== expectedText) {
-            labelEl.textContent = expectedText;
-          }
-        } else {
-          const newEl = this.createPinElement(x);
-          if (existingEl) {
-            r.replaceChild(newEl, existingEl);
-          } else {
-            r.insertBefore(newEl, r.lastChild || null);
-          }
-        }
+      const nodes = chosen[i].map(x => {
+        const sig = sigs.get(x.id);
+        const el = existing.get(x.id);
+        return (el && el.dataset.sig === sig) ? el : this.createPinElement(x, sig);
       });
-
-      while (r.children.length > targetPins.length + (i === 1 && r.querySelector('.overflowpin') ? 1 : 0)) {
-        let last = r.lastChild;
-        if (last && !last.classList.contains('overflowpin')) r.removeChild(last);
-        else break;
-      }
+      if (i === 1 && overflow.length) nodes.push(this.getOverflowEl());
+      const current = [...r.children];
+      if (current.length !== nodes.length || current.some((n, k) => n !== nodes[k])) r.replaceChildren(...nodes);
     });
-
-    const r2 = rows[1];
-    let overflowEl = r2.querySelector('.overflowpin');
-    if (overflow.length) {
-      if (!overflowEl) {
-        overflowEl = document.createElement("a");
-        overflowEl.href = "#"; 
-        overflowEl.className = "pin overflowpin"; 
-        overflowEl.style.flex = "0 0 auto";
-        overflowEl.innerHTML = '<span class="label">≫</span>'; 
-        overflowEl.title = "More bookmarks";
-        r2.append(overflowEl);
-      }
-      overflowEl.onclick = e => { e.preventDefault(); this.toggleOverflow(overflowEl, overflow.map(x => x.id)); };
-    } else if (overflowEl) {
-      overflowEl.remove();
-    }
   }
 
-  createPinElement(x) {
+  getOverflowEl() {
+    if (!this._overflowEl) {
+      const el = document.createElement("a");
+      el.href = "#";
+      el.className = "pin overflowpin";
+      el.style.flex = "0 0 auto";
+      el.innerHTML = '<span class="label">≫</span>';
+      el.title = "More bookmarks";
+      el.onclick = e => { e.preventDefault(); this.toggleOverflow(el, this._overflowIds); };
+      this._overflowEl = el;
+    }
+    return this._overflowEl;
+  }
+
+  createPinElement(x, sig = pinSig(x)) {
     let a = document.createElement("a");
     a.className = "pin" + (isF(x) ? " folder" : "");
-    a.href = isF(x) ? "#" : x.url; a.draggable = true; a.dataset.id = x.id;
+    a.href = isF(x) ? "#" : x.url; a.draggable = true; a.dataset.id = x.id; a.dataset.sig = sig;
     a.innerHTML = `<span class="glyph">${iconMarkup(x)}</span><span class="label">${esc(x.title)}${isF(x)?" ▾":""}</span><span class="pin-edit" role="button" tabindex="0" title="Edit item" aria-label="Edit ${esc(x.title)}">${uiIcon("pencil")}</span>`;
     const editControl = a.querySelector(".pin-edit");
     const editItem = e => { e.preventDefault(); e.stopPropagation(); openEditModal(this.manager.findById(x.id)); };
     editControl.addEventListener("click", editItem);
     editControl.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") editItem(e); });
-    
-    if (isF(x)) a.onclick = e => { e.preventDefault(); this.toggleFolderMenu(x, a); };
+
+    if (isF(x)) a.onclick = e => { e.preventDefault(); this.toggleFolderMenu(this.manager.findById(x.id) || x, a); };
     else { a.target = "_blank"; a.rel = "noopener"; }
-    
+
     a.oncontextmenu = e => { e.preventDefault(); showContextMenu(e.clientX, e.clientY, x); };
-    
+
     a.addEventListener("dragstart", e => { e.dataTransfer.setData("text/plain", x.id); e.dataTransfer.effectAllowed = "move"; a.classList.add("dragging"); });
     a.addEventListener("dragend", () => { a.classList.remove("dragging"); document.querySelectorAll(".drop-target").forEach(n => n.classList.remove("drop-target")); });
     a.addEventListener("dragover", e => { e.preventDefault(); a.classList.add("drop-target"); });
@@ -278,9 +332,9 @@ class ToolbarUI {
         let ord = this.manager.items.filter(y => y.bar && !y.parent && y.id !== src.id).sort((a, b) => (a.order || 0) - (b.order || 0));
         let idx = ord.findIndex(y => y.id === x.id);
         ord.splice(Math.max(0, idx), 0, src);
-        ord.forEach((y, j) => this.manager.update(y.id, { order: j, parent: "", bar: true }));
+        // Ein einziger Speicher- und Sync-Vorgang für die ganze Umsortierung
+        this.manager.batch(() => ord.forEach((y, j) => this.manager.update(y.id, { order: j, parent: "", bar: true })));
       }
-      this._cachedWidths.clear();
       this.render();
     });
     return a;
@@ -288,8 +342,8 @@ class ToolbarUI {
 
   buildRecursiveTree(parentId) {
     let items = this.manager.getKids(parentId).sort((a, b) => a.title.localeCompare(b.title));
-    if (!items.length) return '<div class="muted" style="padding:6px 12px">This folder is empty</div>';
-    
+    if (!items.length) return '<div class="muted" style="padding:6px 12px">This folder is empty</div>' + `<div class="sep"></div><button class="ctxitem" data-add="${parentId}">＋ Add bookmark</button><button class="ctxitem" data-folder="${parentId}">＋ Create subfolder</button>`;
+
     return items.map(x => {
       let icon = iconMarkup(x);
       if (isF(x)) {
@@ -364,49 +418,61 @@ function readShareState() {
 }
 
 function defaultSyncConfig() {
-  return { 
-    version: 1, 
-    provider: "supabase", 
-    url: "", 
-    publishableKey: "", 
-    storage: { table: "user_storage", idColumn: "id", payloadColumn: "payload", updatedAtColumn: "updated_at" }, 
+  return {
+    version: 1,
+    provider: "supabase",
+    url: "",
+    publishableKey: "",
+    storage: { table: "user_storage", idColumn: "id", payloadColumn: "payload", updatedAtColumn: "updated_at" },
     realtime: { enabled: true },
-    readUrl: "", 
-    writeUrl: "", 
+    readUrl: "",
+    writeUrl: "",
     method: "PUT",
-    headers: {} 
+    headers: {}
   };
 }
 
 function setShareState(state) {
-  const q = new URLSearchParams(); 
-  q.set("config", b64u(new TextEncoder().encode(JSON.stringify(state.config)))); 
-  q.set("vault", state.vault); 
+  const q = new URLSearchParams();
+  q.set("config", b64u(new TextEncoder().encode(JSON.stringify(state.config))));
+  q.set("vault", state.vault);
   q.set("key", state.key);
   history.replaceState(null, "", location.pathname + location.search + "#" + q.toString());
 }
 
 class LockmarkSync {
-  constructor(state) { 
-    this.state = state; 
-    this.client = null; 
-    this.channel = null; 
-    this.timer = null; 
-    this.debounce = null; 
-    this.applyingRemote = false; 
-    this.lastRemoteAt = 0; 
-    this.lastCipher = ""; 
-    this.started = false; 
+  constructor(state) {
+    this.state = state;
+    this.client = null;
+    this.channel = null;
+    this.timer = null;
+    this.debounce = null;
+    this.applyingRemote = false;
+    this.lastRemoteAt = 0;
+    this.lastCipher = "";
+    this.started = false;
+    this.stopped = false;
   }
 
-  async cryptoKey() { 
-    return crypto.subtle.importKey("raw", unb64u(this.state.key), { name: "AES-GCM" }, false, ["encrypt", "decrypt"]); 
+  // Beendet Polling, Realtime-Channel und ausstehende Uploads dieser Instanz vollständig
+  stop() {
+    this.stopped = true;
+    clearInterval(this.timer); this.timer = null;
+    clearTimeout(this.debounce); this.debounce = null;
+    if (this.channel && this.client) {
+      try { const r = this.client.removeChannel(this.channel); if (r && r.catch) r.catch(() => {}); } catch {}
+    }
+    this.channel = null;
+  }
+
+  async cryptoKey() {
+    return crypto.subtle.importKey("raw", unb64u(this.state.key), { name: "AES-GCM" }, false, ["encrypt", "decrypt"]);
   }
 
   async encrypt(value) {
-    const iv = crypto.getRandomValues(new Uint8Array(12)); 
+    const iv = crypto.getRandomValues(new Uint8Array(12));
     const key = await this.cryptoKey();
-    const plain = new TextEncoder().encode(JSON.stringify(value)); 
+    const plain = new TextEncoder().encode(JSON.stringify(value));
     const cipher = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, plain);
     return JSON.stringify({ v: 1, alg: "A256GCM", iv: b64u(iv), data: b64u(cipher) });
   }
@@ -414,40 +480,40 @@ class LockmarkSync {
   async decrypt(envelope) {
     const e = typeof envelope === "string" ? JSON.parse(envelope) : envelope;
     if (e.v !== 1 || e.alg !== "A256GCM") throw Error("Unbekanntes Verschlüsselungsformat");
-    const key = await this.cryptoKey(); 
+    const key = await this.cryptoKey();
     const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: unb64u(e.iv) }, key, unb64u(e.data));
     return JSON.parse(new TextDecoder().decode(plain));
   }
 
-  status(text) { 
-    const el = document.getElementById("app-status"); 
-    if (el) el.textContent = "Lockmark · " + text; 
+  status(text) {
+    if (this.stopped) return; // gestoppte Instanzen dürfen die Anzeige nicht mehr ändern
+    setSyncStatus(text);
   }
 
-  ready() { 
-    const c = this.state.config; 
+  ready() {
+    const c = this.state.config;
     return c && (
-      (c.provider === "supabase" && c.url && c.publishableKey) || 
+      (c.provider === "supabase" && c.url && c.publishableKey) ||
       (c.provider === "rest" && c.readUrl && c.writeUrl) ||
       (c.provider === "github" && c.token && c.gistId)
-    ); 
+    );
   }
 
   async start() {
-    if (this.started) return; 
+    if (this.started || this.stopped) return;
     this.started = true;
-    if (!this.ready()) { 
-      this.status("Local (Click to configure sync)"); 
-      return; 
+    if (!this.ready()) {
+      this.status("Local (Click to configure sync)");
+      return;
     }
     try {
       if (this.state.config.provider === "supabase") await this.startSupabase();
       else if (this.state.config.provider === "github") await this.startGitHub();
       else if (this.state.config.provider === "rest") await this.startRest();
       else throw Error("Unbekannter Provider: " + this.state.config.provider);
-    } catch(e) { 
-      console.error("Lockmark Sync:", e); 
-      this.status("Sync-Fehler (Lokaler Modus aktiv)"); 
+    } catch(e) {
+      console.error("Lockmark Sync:", e);
+      this.status("Sync-Fehler (Lokaler Modus aktiv)");
     }
   }
 
@@ -458,9 +524,11 @@ class LockmarkSync {
       if (old) { old.addEventListener("load", resolve, { once: true }); old.addEventListener("error", () => reject(Error("Supabase-Bibliothek konnte nicht geladen werden")), { once: true }); return; }
       let sc = document.createElement("script"); sc.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"; sc.dataset.lockmarkSupabase = "1"; sc.onload = resolve; sc.onerror = () => reject(Error("Supabase-Bibliothek konnte nicht geladen werden")); document.head.append(sc);
     });
+    if (this.stopped) return;
     if (!window.supabase?.createClient) throw Error("Supabase-JavaScript-Bibliothek ist nicht verfügbar");
     this.client = window.supabase.createClient(c.url, c.publishableKey, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } });
     await this.pullSupabase();
+    if (this.stopped) return;
     if (c.realtime?.enabled !== false) {
       const table = c.storage?.table || "user_storage", idCol = c.storage?.idColumn || "id";
       this.channel = this.client.channel("lockmark-" + this.state.vault).on("postgres_changes", { event: "*", schema: "public", table, filter: `${idCol}=eq.${this.state.vault}` }, payload => {
@@ -483,12 +551,14 @@ class LockmarkSync {
     c.method = "PATCH";
     c.headers = { "Authorization": `Bearer ${c.token}`, "Accept": "application/vnd.github+json" };
     await this.pullGitHub();
+    if (this.stopped) return;
     const ms = Math.max(10000, Number(c.pollIntervalMs) || 15000);
     this.timer = setInterval(() => this.pullGitHub().catch(e => console.error(e)), ms);
     this.status("Synced (GitHub)");
   }
 
   async pullGitHub() {
+    if (this.stopped) return;
     const c = this.state.config;
     const res = await fetch(c.readUrl, { headers: c.headers });
     if (!res.ok) throw Error("GitHub API error: " + res.status);
@@ -502,21 +572,22 @@ class LockmarkSync {
   }
 
   async applyRemote(rawCipher) {
-    if (!rawCipher) return;
+    if (this.stopped || !rawCipher) return;
     if (rawCipher === this.lastCipher) return;
     try {
       const data = await this.decrypt(rawCipher);
+      if (this.stopped) return;
       if (!Array.isArray(data.items)) throw Error("Invalid synced items");
-      this.lastCipher = rawCipher; 
-      this.lastRemoteAt = Date.now(); 
+      stripLegacyIcons(data.items);
+      this.lastCipher = rawCipher;
+      this.lastRemoteAt = Date.now();
       this.applyingRemote = true;
-      try { 
-        bm.items = data.items; 
-        repo.save(bm.items); 
-        toolbarUI._cachedWidths.clear();
-        toolbarUI.render(); 
-      } finally { 
-        this.applyingRemote = false; 
+      try {
+        bm.items = data.items;
+        repo.save(bm.items);
+        toolbarUI.render();
+      } finally {
+        this.applyingRemote = false;
       }
       this.status("Synced");
     } catch (e) {
@@ -525,23 +596,23 @@ class LockmarkSync {
   }
 
   localChanged(items) {
-    if (this.applyingRemote || !this.ready()) return;
-    clearTimeout(this.debounce); 
+    if (this.stopped || this.applyingRemote || !this.ready()) return;
+    clearTimeout(this.debounce);
     this.debounce = setTimeout(() => this.uploadCurrent().catch(e => { console.error(e); this.status("Sync Upload Failed"); }), 600);
   }
 
   async uploadCurrent() {
-    if (!this.ready() || this.applyingRemote) return;
+    if (this.stopped || !this.ready() || this.applyingRemote) return;
     const envelope = await this.encrypt({ version: 1, updatedAt: Date.now(), items: bm.items });
     if (envelope === this.lastCipher) return;
     const now = new Date().toISOString();
-    
+
     if (this.state.config.provider === "supabase") {
-      const s = this.state.config.storage || {}, row = {}; 
-      row[s.idColumn || "id"] = this.state.vault; 
-      row[s.payloadColumn || "payload"] = envelope; 
+      const s = this.state.config.storage || {}, row = {};
+      row[s.idColumn || "id"] = this.state.vault;
+      row[s.payloadColumn || "payload"] = envelope;
       row[s.updatedAtColumn || "updated_at"] = now;
-      const { error } = await this.client.from(s.table || "user_storage").upsert(row, { onConflict: s.idColumn || "id" }); 
+      const { error } = await this.client.from(s.table || "user_storage").upsert(row, { onConflict: s.idColumn || "id" });
       if (error) throw Error(error.message);
     } else if (this.state.config.provider === "github") {
       const c = this.state.config;
@@ -558,26 +629,35 @@ class LockmarkSync {
       const res = await fetch(url, { method: c.method || "PUT", headers, body: JSON.stringify({ id: this.state.vault, payload: envelope, updated_at: now }) });
       if (!res.ok) throw Error("REST server responded with HTTP " + res.status);
     }
-    this.lastCipher = envelope; 
-    this.lastRemoteAt = Date.now(); 
+    this.lastCipher = envelope;
+    this.lastRemoteAt = Date.now();
     this.status("Synced");
   }
 
   async startRest() {
-    await this.pullRest(); 
+    await this.pullRest();
+    if (this.stopped) return;
     this.status("Synced (REST Backup)");
     const ms = Math.max(5000, Number(this.state.config.pollIntervalMs) || 15000);
     this.timer = setInterval(() => this.pullRest().catch(e => console.error(e)), ms);
   }
 
   async pullRest() {
+    if (this.stopped) return;
     const c = this.state.config, url = (c.readUrl || "").replaceAll("{id}", encodeURIComponent(this.state.vault));
-    const res = await fetch(url, { headers: { ...(c.headers || {}) } }); 
-    if (res.status === 404) return this.uploadCurrent(); 
+    const res = await fetch(url, { headers: { ...(c.headers || {}) } });
+    if (res.status === 404) return this.uploadCurrent();
     if (!res.ok) throw Error("REST server HTTP " + res.status);
-    const row = await res.json(); 
+    const row = await res.json();
     if (row.payload) await this.applyRemote(row.payload);
   }
+}
+
+// Alte Instanz sauber beenden, neue starten – verhindert doppeltes Polling
+async function restartSync(state) {
+  if (window.lockmarkSync) window.lockmarkSync.stop();
+  window.lockmarkSync = new LockmarkSync(state);
+  await window.lockmarkSync.start();
 }
 
 const parsedShare = readShareState();
@@ -590,33 +670,38 @@ document.getElementById("app-status").onclick = openSyncSettings;
 function openSyncSettings() {
   const st = window.lockmarkSync.state;
   const sample = JSON.stringify(st.config, null, 2);
-  modal(`<h3>Sync, GitHub & Backup Settings</h3><p class="muted">Data is loaded <b>locally first</b> and synchronized securely with E2EE end-to-end encryption. Configure Supabase, GitHub Gist, or custom REST servers below.</p><label class="field"><span>Backend configuration (JSON)</span><textarea id="sync-json" rows="13" style="width:100%;font:12px ui-monospace,monospace;padding:8px;border:1px solid #e7d8d1;border-radius:5px;resize:vertical">${esc(sample)}</textarea></label><div class="actions" style="justify-content:space-between"><button class="btn" id="new-key">Generate new key</button><span><button class="btn" id="sync-cancel">Close</button> <button class="btn" id="sync-save">Save configuration</button></span></div><div class="actions"><button class="btn" id="copy-link">🔗 Copy share link</button><button class="btn" id="copy-config">Copy JSON</button></div>`);
+  modal(`<h3>Sync, GitHub & Backup Settings</h3><p class="muted">Data is loaded <b>locally first</b> and synchronized securely with E2EE end-to-end encryption. Configure Supabase, GitHub Gist, or custom REST servers below.</p><label class="field"><span>Backend configuration (JSON)</span><textarea id="sync-json" rows="13" style="width:100%;font:12px ui-monospace,monospace;padding:8px;border:1px solid #e7d8d1;border-radius:5px;resize:vertical">${esc(sample)}</textarea></label><div class="actions" style="justify-content:space-between"><button class="btn" id="new-key">Generate new key</button><span><button class="btn" id="sync-cancel">Close</button> <button class="btn" id="sync-save">Save configuration</button></span></div><div class="actions"><button class="btn" id="copy-link">🔗 Copy share link</button><button class="btn" id="copy-config">Copy JSON</button></div><div class="sep" style="margin:14px 0 6px"></div><h4 style="margin:8px 0 4px">Privacy</h4><label class="check"><input type="checkbox" id="pref-ext-fav" ${prefs.externalFavicons ? "checked" : ""}><span>Use Google favicon service (default).<br><span class="muted">The icon is fetched via Google when a bookmark is saved and kept locally where possible. Turn off to load icons directly from each website instead. This setting stays on this device.</span></span></label>`);
   document.getElementById("sync-cancel").onclick = closeModal;
+  document.getElementById("pref-ext-fav").onchange = e => {
+    prefs.externalFavicons = e.target.checked;
+    savePrefs();
+    toolbarUI.render();
+    toast(prefs.externalFavicons ? "External favicon service enabled" : "Icons are now loaded from the websites directly");
+  };
   document.getElementById("sync-save").onclick = async () => {
-    try { 
-      const cfg = JSON.parse(document.getElementById("sync-json").value); 
+    try {
+      const cfg = JSON.parse(document.getElementById("sync-json").value);
       if (!cfg || typeof cfg !== "object" || !cfg.provider) throw Error("provider missing");
-      st.config = cfg; 
-      setShareState(st); 
-      closeModal(); 
-      window.lockmarkSync = new LockmarkSync(st); 
-      await window.lockmarkSync.start(); 
+      st.config = cfg;
+      setShareState(st);
+      closeModal();
+      await restartSync(st);
       toast("Configuration saved & sync started");
-    } catch(e) { 
-      toast("JSON/Sync Error: " + e.message); 
+    } catch(e) {
+      toast("JSON/Sync Error: " + e.message);
     }
   };
   document.getElementById("new-key").onclick = () => {
-    if (!confirm("Creating a new key creates a separate bookmark vault. Existing data remains untouched.")) return; 
-    st.key = randomToken(32); st.vault = randomToken(32); 
-    setShareState(st); 
-    window.lockmarkSync = new LockmarkSync(st); 
-    document.getElementById("sync-json").value = JSON.stringify(st.config, null, 2); 
+    if (!confirm("Creating a new key creates a separate bookmark vault. Existing data remains untouched.")) return;
+    st.key = randomToken(32); st.vault = randomToken(32);
+    setShareState(st);
+    restartSync(st).catch(e => console.error(e));
+    document.getElementById("sync-json").value = JSON.stringify(st.config, null, 2);
     toast("New key and vault created");
   };
-  document.getElementById("copy-link").onclick = () => { 
-    setShareState(st); 
-    navigator.clipboard?.writeText(location.href).then(() => toast("Share link copied")).catch(() => toast("Could not copy link")); 
+  document.getElementById("copy-link").onclick = () => {
+    setShareState(st);
+    navigator.clipboard?.writeText(location.href).then(() => toast("Share link copied")).catch(() => toast("Could not copy link"));
   };
   document.getElementById("copy-config").onclick = () => navigator.clipboard?.writeText(document.getElementById("sync-json").value).then(() => toast("JSON copied"));
 }
@@ -630,29 +715,33 @@ const esc = s => String(s ?? "" ).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&l
       host = u => { try { return new URL(u).hostname.replace(/^www\./,"") } catch { return "" } },
       isF = x => !!x && x.type === "folder";
 
+// Reihenfolge der Favicon-Quellen. Standard: zuerst Google-Favicon-Dienst, dann die Website selbst.
+// In den Einstellungen abschaltbar (dann nur die Website selbst).
+function faviconCandidates(url) {
+  try {
+    const u = new URL(url);
+    if (u.protocol !== "http:" && u.protocol !== "https:") return [];
+    const own = [u.origin + "/favicon.ico", u.origin + "/apple-touch-icon.png"];
+    if (!prefs.externalFavicons) return own;
+    return [`https://www.google.com/s2/favicons?domain=${encodeURIComponent(u.hostname)}&sz=32`, ...own];
+  } catch { return []; }
+}
+
 function iconMarkup(x) {
   if (!x) return globeIcon();
-  
-  // 1. Wenn ein benutzerdefiniertes Icon (Base64 oder URL) da ist:
-  if (x.iconUrl) {
-    return `<img data-custom-icon="1" src="${esc(x.iconUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
-  }
-  // 2. Wenn ein Emoji/Glyph gewählt wurde:
+  const img = src => `<img data-custom-icon="1" src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
+
+  // 1. Selbst hochgeladenes Icon hat Vorrang
+  if (x.iconUrl && !x.iconAuto) return img(x.iconUrl);
+  // 2. Emoji/Glyph
   if (x.glyph) return esc(x.glyph);
-  // 3. Wenn es ein Ordner ist:
+  // 3. Automatisch zwischengespeichertes Favicon (data:-URL, 32×32)
+  if (x.iconUrl) return img(x.iconUrl);
+  // 4. Ordner
   if (isF(x)) return folderIcon();
-
-  // 4. Automatischer Fallback für normale Links (ohne State-Mutation im Render):
-  try {
-    const u = new URL(x.url);
-    if (u.protocol === "http:" || u.protocol === "https:") {
-      // Wir nutzen den externen Dienst als reinen Bild-Pfad, 
-      // ohne ihn direkt in den Storage zu schreiben:
-      const fallbackFavicon = `https://www.google.com/s2/favicons?domain=${u.hostname}&sz=32`;
-      return `<img data-favicon="${esc(fallbackFavicon)}" src="${esc(fallbackFavicon)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
-    }
-  } catch {}
-
+  // 5. Live-Favicon mit Fallback-Kette (siehe Error-Handler)
+  const list = faviconCandidates(x.url);
+  if (list.length) return `<img data-favicon="${esc(list.join(" "))}" data-favicon-step="0" src="${esc(list[0])}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
   return globeIcon();
 }
 function globeIcon() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>'; }
@@ -662,17 +751,68 @@ document.addEventListener("error", event => {
   const img = event.target;
   if (!(img instanceof HTMLImageElement)) return;
   if (img.dataset.favicon) {
-    const step = Number(img.dataset.faviconStep || 0);
-    if (step === 0) {
-      img.dataset.faviconStep = "1";
-      try { img.src = new URL("/apple-touch-icon.png", new URL(img.dataset.favicon).origin).href; return; } catch {}
-    }
+    const list = img.dataset.favicon.split(" ");
+    const step = Number(img.dataset.faviconStep || 0) + 1;
+    if (step < list.length) { img.dataset.faviconStep = String(step); img.src = list[step]; return; }
     const holder = img.closest(".glyph");
     if (holder) holder.innerHTML = globeIcon();
     return;
   }
   if (img.dataset.customIcon) { const holder = img.closest(".glyph"); if (holder) holder.innerHTML = globeIcon(); return; }
 }, true);
+
+// Bild (Blob/File) auf size×size verkleinern (Seitenverhältnis bleibt, transparent aufgefüllt) → PNG data:-URL
+function blobToIconDataUrl(blob, size = 32) {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const w = img.naturalWidth || size, h = img.naturalHeight || size;
+        const s = Math.min(size / w, size / h);
+        const dw = Math.max(1, Math.round(w * s)), dh = Math.max(1, Math.round(h * s));
+        const c = document.createElement("canvas");
+        c.width = size; c.height = size;
+        const ctx = c.getContext("2d");
+        ctx.imageSmoothingQuality = "high";
+        ctx.drawImage(img, (size - dw) / 2, (size - dh) / 2, dw, dh);
+        resolve(c.toDataURL("image/png"));
+      } catch (e) { reject(e); }
+      finally { URL.revokeObjectURL(url); }
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(Error("Image could not be read")); };
+    img.src = url;
+  });
+}
+
+async function fetchIconAsDataUrl(src) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), 5000);
+  try {
+    const res = await fetch(src, { mode: "cors", credentials: "omit", referrerPolicy: "no-referrer", signal: ctrl.signal });
+    if (!res.ok) throw Error("HTTP " + res.status);
+    const blob = await res.blob();
+    if (/^text\//.test(blob.type)) throw Error("Not an image");
+    return await blobToIconDataUrl(blob, 32);
+  } finally { clearTimeout(t); }
+}
+
+// Versucht, das Favicon einmalig als 32×32 data:-URL zu speichern.
+// Klappt nur, wenn die Quelle CORS erlaubt – sonst bleibt es beim Live-Laden (kein Fehler für den Nutzer).
+async function cacheFavicon(id) {
+  const x = bm.findById(id);
+  if (!x || isF(x) || x.glyph || (x.iconUrl && !x.iconAuto)) return;
+  for (const src of faviconCandidates(x.url)) {
+    try {
+      const dataUrl = await fetchIconAsDataUrl(src);
+      const cur = bm.findById(id);
+      if (!cur || cur.url !== x.url || cur.glyph || (cur.iconUrl && !cur.iconAuto)) return;
+      bm.update(id, { iconUrl: dataUrl, iconAuto: true });
+      toolbarUI.render();
+      return;
+    } catch {}
+  }
+}
 
 function isDescendant(candidateId, ancestorId) {
   let current = bm.findById(candidateId), seen = new Set();
@@ -720,33 +860,54 @@ function showContextMenu(x, y, item = null) {
     if (act === "all") showAllBookmarks();
     if (act === "sync") openSyncSettings();
     if (act === "edit" && item) openEditModal(bm.findById(item.id));
-    if (act === "remove" && item) { bm.update(item.id, { bar: false }); toolbarUI._cachedWidths.clear(); toolbarUI.render(); }
+    if (act === "remove" && item) { bm.update(item.id, { bar: false }); toolbarUI.render(); }
   });
 }
 
 function openEditModal(x = null, asFolder = false, parentOverride = "") {
   let f = asFolder || isF(x), pdef = parentOverride || x?.parent || "",
       opts = '<option value="">Bookmarks toolbar</option>' + bm.items.filter(isF).map(o => `<option value="${o.id}" ${o.id === pdef ? "selected" : ""}>${esc(o.title)}</option>`).join("");
-  
-  modal(`<h3>${x ? "Edit item" : f ? "New folder" : "New bookmark"}</h3><form id="form"><label class="field"><span>Name</span><input name="title" required value="${esc(x?.title || "")}"></label>${f ? "" : `<label class="field"><span>URL</span><input name="url" type="url" required placeholder="https://…" value="${esc(x?.url || "")}"></label>`}<label class="field"><span>Location</span><select name="parent">${opts}</select></label><label class="field"><span>Choose an icon</span><select name="glyphPreset"><option value="">Automatic (website favicon / folder)</option>${[["📁","Folder"],["📂","Open folder"],["⭐","Favorite"],["📚","Books"],["💼","Work"],["🏠","Home"],["🎨","Creative"],["🧰","Tools"],["🎵","Music"],["🎮","Games"],["📰","News"],["🛒","Shopping"],["🔒","Private"],["☁️","Cloud"]].map(([v,n])=>`<option value="${v}" ${(x?.glyph||"")===v?"selected":""}>${v} ${n}</option>`).join("")}</select><div class="icon-help">Bookmarks use the website icon by default.</div></label><label class="field"><span>Custom symbol (optional)</span><input name="glyph" value="${esc(x?.glyph || "")}" placeholder="Emoji or short text — overrides the selection"></label><label class="field"><span>Custom icon (Upload image as Base64, optional)</span><input id="icon-file" type="file" accept="image/*"><input type="hidden" name="iconUrl" id="icon-url-val" value="${esc(x?.iconUrl || "")}"></label><label><input name="bar" type="checkbox" ${x?.bar || (!x && !pdef) ? "checked" : ""}> Show in toolbar</label><div class="actions">${x ? '<button type="button" class="btn" id="del">Delete</button>' : ""}<button type="button" class="btn" id="cancel">Cancel</button><button class="btn" type="submit">Save</button></div></form>`);
-  
+
+  modal(`<h3>${x ? "Edit item" : f ? "New folder" : "New bookmark"}</h3><form id="form"><label class="field"><span>Name</span><input name="title" required value="${esc(x?.title || "")}"></label>${f ? "" : `<label class="field"><span>URL</span><input name="url" type="url" required placeholder="https://…" value="${esc(x?.url || "")}"></label>`}<label class="field"><span>Location</span><select name="parent">${opts}</select></label><label class="field"><span>Choose an icon</span><select name="glyphPreset"><option value="">Automatic (website favicon / folder)</option>${[["📁","Folder"],["📂","Open folder"],["⭐","Favorite"],["📚","Books"],["💼","Work"],["🏠","Home"],["🎨","Creative"],["🧰","Tools"],["🎵","Music"],["🎮","Games"],["📰","News"],["🛒","Shopping"],["🔒","Private"],["☁️","Cloud"]].map(([v,n])=>`<option value="${v}" ${(x?.glyph||"")===v?"selected":""}>${v} ${n}</option>`).join("")}</select><div class="icon-help">Bookmarks use the website icon by default.</div></label><label class="field"><span>Custom symbol (optional)</span><input name="glyph" value="${esc(x?.glyph || "")}" placeholder="Emoji or short text — overrides the selection"></label><div class="field"><span>Custom icon (optional, scaled to 32×32)</span><div class="icon-row"><span class="glyph" id="icon-preview"></span><input id="icon-file" type="file" accept="image/*"><button type="button" class="btn" id="icon-clear">Remove</button></div><input type="hidden" name="iconUrl" id="icon-url-val" value="${esc(x?.iconUrl || "")}" data-auto="${x?.iconAuto ? "1" : "0"}"></div><label><input name="bar" type="checkbox" ${x?.bar || (!x && !pdef) ? "checked" : ""}> Show in toolbar</label><div class="actions">${x ? '<button type="button" class="btn" id="del">Delete</button>' : ""}<button type="button" class="btn" id="cancel">Cancel</button><button class="btn" type="submit">Save</button></div></form>`);
+
   document.getElementById("cancel").onclick = closeModal;
-  if (x) document.getElementById("del").onclick = () => { if (confirm("Delete this item?")) { bm.remove(x.id); hidePop(); closeModal(); toolbarUI._cachedWidths.clear(); toolbarUI.render(); } };
-  
+  if (x) document.getElementById("del").onclick = () => { if (confirm("Delete this item?")) { bm.remove(x.id); hidePop(); closeModal(); toolbarUI.render(); } };
+
   let form = document.getElementById("form");
   let fileInput = document.getElementById("icon-file");
   let iconUrlVal = document.getElementById("icon-url-val");
-  
-  fileInput.addEventListener("change", () => {
+  let preview = document.getElementById("icon-preview");
+  let clearBtn = document.getElementById("icon-clear");
+
+  const updatePreview = () => {
+    const v = iconUrlVal.value.trim();
+    preview.innerHTML = v ? `<img data-custom-icon="1" src="${esc(v)}" alt="">` : (f ? folderIcon() : globeIcon());
+    clearBtn.disabled = !v;
+  };
+  updatePreview();
+
+  fileInput.addEventListener("change", async () => {
     let file = fileInput.files[0];
     if (!file) return;
-    let reader = new FileReader();
-    reader.onload = e => {
-      iconUrlVal.value = e.target.result; // Base64 Data-URL
-      toast("Icon loaded into memory");
-    };
-    reader.readAsDataURL(file);
+    if (!file.type.startsWith("image/")) { fileInput.value = ""; return toast("Please choose an image file"); }
+    if (file.size > 10 * 1024 * 1024) { fileInput.value = ""; return toast("Image is too large (max. 10 MB)"); }
+    try {
+      iconUrlVal.value = await blobToIconDataUrl(file, 32); // klein & synchronisationsfreundlich
+      iconUrlVal.dataset.auto = "0";
+      updatePreview();
+      toast("Icon scaled to 32×32");
+    } catch {
+      fileInput.value = "";
+      toast("Image could not be read");
+    }
   });
+
+  clearBtn.onclick = () => {
+    iconUrlVal.value = "";
+    iconUrlVal.dataset.auto = "0";
+    fileInput.value = "";
+    updatePreview();
+  };
 
   let urlInput = form.querySelector('[name="url"]'), titleInput = form.querySelector('[name="title"]');
   if (urlInput && titleInput) {
@@ -763,17 +924,12 @@ function openEditModal(x = null, asFolder = false, parentOverride = "") {
     let fd = new FormData(e.target), parent = String(fd.get("parent") || ""), url = f ? "" : String(fd.get("url") || "").trim();
     if (x && (parent === x.id || (f && parent && isDescendant(parent, x.id)))) return toast("Ungültige Location: Schleife verhindert");
     if (!f) { try { if (!["http:", "https:"].includes(new URL(url).protocol)) throw 0; } catch { return toast("Invalid URL"); } }
-    
-    // ----------------------------------------------------
-    // IHRE CODE-STELLE STARTET HIER:
-    // ----------------------------------------------------
-    let computedIconUrl = String(iconUrlVal.value).trim();
-    if (!computedIconUrl && !f && url) {
-      try {
-        const u = new URL(url);
-        computedIconUrl = `https://www.google.com/s2/favicons?domain=${u.hostname}&sz=32`;
-      } catch {}
-    }
+
+    // Icon: nur selbst hochgeladene Bilder oder zwischengespeicherte Favicons werden gespeichert –
+    // keine externen Dienst-URLs mehr im Datensatz.
+    let iconUrl = String(iconUrlVal.value).trim();
+    let iconAuto = iconUrlVal.dataset.auto === "1";
+    if (iconAuto && x && url !== x.url) { iconUrl = ""; iconAuto = false; } // URL geändert → Favicon neu holen
 
     let v = {
       title: String(fd.get("title")).trim(),
@@ -781,16 +937,18 @@ function openEditModal(x = null, asFolder = false, parentOverride = "") {
       type: f ? "folder" : "link",
       parent,
       glyph: String(fd.get("glyph")).trim() || String(fd.get("glyphPreset") || ""),
-      iconUrl: computedIconUrl, // <--- Hier wird das Icon nun fest im Datensatz gespeichert!
+      iconUrl,
+      iconAuto: !!iconUrl && iconAuto,
       bar: fd.has("bar") && !parent
     };
-    
-    if (x) bm.update(x.id, v);
-    else bm.add(v);
-    
-    closeModal(); 
-    toolbarUI._cachedWidths.clear();
+
+    let id;
+    if (x) { bm.update(x.id, v); id = x.id; }
+    else id = bm.add(v).id;
+
+    closeModal();
     toolbarUI.render();
+    if (!f && !v.iconUrl && !v.glyph) cacheFavicon(id); // im Hintergrund, stört nicht bei Fehlschlag
   };
 }
 
@@ -847,9 +1005,8 @@ function importFile() {
       }
       if (!incoming.length) throw Error("No bookmarks found");
       bm.importData(incoming);
-      closeModal(); 
-      toolbarUI._cachedWidths.clear();
-      toolbarUI.render(); 
+      closeModal();
+      toolbarUI.render();
       toast(incoming.length + " bookmarks imported");
     } catch (e) { toast("Import failed: " + e.message); }
   };
@@ -859,7 +1016,18 @@ document.getElementById("bar").addEventListener("contextmenu", e => { e.preventD
 document.addEventListener("click", e => { if (!e.target.closest("#ctx") && !e.target.closest("#bar")) document.getElementById("ctx").classList.remove("show"); if (!e.target.closest("#popup") && !e.target.closest("#bar")) hidePop(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape") { hidePop(); document.getElementById("ctx").classList.remove("show"); closeModal(); } });
 
+// Toolbar bei Größenänderung neu verteilen (max. einmal pro Frame)
+(() => {
+  let pending = false;
+  new ResizeObserver(() => {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(() => { pending = false; toolbarUI.render(); });
+  }).observe(document.getElementById("bar"));
+})();
+
 // App starten & Sync initialisieren
+renderAppStatus();
 toolbarUI.render();
 window.lockmarkSync.start().catch(e=>console.error(e));
 
@@ -868,8 +1036,8 @@ if ("serviceWorker" in navigator && (location.protocol === "https:" || location.
   window.addEventListener("load", async () => {
     try {
       await navigator.serviceWorker.register("./sw.js");
-      const status = document.getElementById("app-status");
-      if (status) status.textContent = "Lockmark · Offline ready";
+      appStatus.offline = true;   // ergänzt die Anzeige, statt den Sync-Status zu überschreiben
+      renderAppStatus();
     } catch (err) {
       console.error("Service Worker error:", err);
     }
