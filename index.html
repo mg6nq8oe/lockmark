@@ -42,7 +42,6 @@ const prefs = (() => {
 })();
 function savePrefs() { try { localStorage.setItem(PREFS_KEY, JSON.stringify(prefs)); } catch {} }
 
-// Entfernt konsequent alle externen, nicht-lokalen Icon-URLs (alles, was keine Data-URL ist)
 function stripLegacyIcons(items) {
   let changed = false;
   (items || []).forEach(x => {
@@ -178,7 +177,6 @@ class BookmarkManager {
   }
 
   exportData() {
-    // Vor dem Export alle Items von externen/Legacy-Icons bereinigen
     stripLegacyIcons(this.items);
     return JSON.stringify({ version: this.version, updatedAt: Date.now(), items: this.items }, null, 2);
   }
@@ -188,7 +186,6 @@ class BookmarkManager {
     let remap = new Map();
     incomingItems.filter(x => x.type === "folder").forEach(x => remap.set(x.id, crypto.randomUUID()));
     
-    // Beim Importieren ebenfalls jegliche externe Icon-URLs restriktiv entfernen
     stripLegacyIcons(incomingItems);
 
     const base = this.nextOrder();
@@ -701,6 +698,7 @@ const esc = s => String(s ?? "" ).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&l
       host = u => { try { return new URL(u).hostname.replace(/^www\./,"") } catch { return "" } },
       isF = x => !!x && x.type === "folder";
 
+// --- SAUBERE DATA-URL KONVERTIERUNG & KANDIDATEN-SUCHE ---
 function faviconCandidates(url) {
   try {
     const u = new URL(url);
@@ -709,6 +707,40 @@ function faviconCandidates(url) {
     if (!prefs.externalFavicons) return own;
     return [`https://www.google.com/s2/favicons?domain=${encodeURIComponent(u.hostname)}&sz=32`, ...own];
   } catch { return []; }
+}
+
+async function convertUrlToDataUrl(srcUrl) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      try {
+        const size = 32;
+        const canvas = document.createElement("canvas");
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext("2d");
+        ctx.imageSmoothingQuality = "high";
+        ctx.drawImage(img, 0, 0, size, size);
+        resolve(canvas.toDataURL("image/png"));
+      } catch (err) { reject(err); }
+    };
+    img.onerror = () => reject(Error("Bild konnte nicht geladen werden"));
+    img.src = srcUrl;
+  });
+}
+
+async function getBestDataIconForUrl(pageUrl) {
+  const candidates = faviconCandidates(pageUrl);
+  for (const src of candidates) {
+    try {
+      const dataUrl = await convertUrlToDataUrl(src);
+      if (dataUrl && dataUrl.startsWith("data:")) {
+        return dataUrl;
+      }
+    } catch (e) {}
+  }
+  return null;
 }
 
 function iconMarkup(x) {
@@ -761,18 +793,6 @@ function blobToIconDataUrl(blob, size = 32) {
     img.onerror = () => { URL.revokeObjectURL(url); reject(Error("Image could not be read")); };
     img.src = url;
   });
-}
-
-async function fetchIconAsDataUrl(src) {
-  const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), 5000);
-  try {
-    const res = await fetch(src, { mode: "cors", credentials: "omit", referrerPolicy: "no-referrer", signal: ctrl.signal });
-    if (!res.ok) throw Error("HTTP " + res.status);
-    const blob = await res.blob();
-    if (/^text\//.test(blob.type)) throw Error("Not an image");
-    return await blobToIconDataUrl(blob, 32);
-  } finally { clearTimeout(t); }
 }
 
 function isDescendant(candidateId, ancestorId) {
@@ -889,14 +909,12 @@ function openEditModal(x = null, asFolder = false, parentOverride = "") {
     let iconUrl = String(iconUrlVal.value).trim();
     let iconAuto = iconUrlVal.dataset.auto === "1";
 
+    // HIER GREIFT NUN GETBESTDATAICONFORURL BEIM ERSTELLEN/SPEICHERN
     if (!f && !iconUrl && !fd.get("glyph")) {
-      const candidates = faviconCandidates(url);
-      for (const src of candidates) {
-        try {
-          iconUrl = await fetchIconAsDataUrl(src);
-          iconAuto = true;
-          break;
-        } catch {}
+      const generatedDataUrl = await getBestDataIconForUrl(url);
+      if (generatedDataUrl) {
+        iconUrl = generatedDataUrl;
+        iconAuto = true;
       }
     }
 
@@ -972,6 +990,18 @@ function importFile() {
         let root = doc.querySelector("body > dl") || doc.querySelector("dl"); if (root) parse(root, "", false);
       }
       if (!incoming.length) throw Error("No bookmarks found");
+      
+      // OPTIONAL: Konvertiere importierte Items direkt in Data-URLs
+      for (let item of incoming) {
+        if (item.type === "link" && item.url && !item.iconUrl) {
+          const generatedDataUrl = await getBestDataIconForUrl(item.url);
+          if (generatedDataUrl) {
+            item.iconUrl = generatedDataUrl;
+            item.iconAuto = true;
+          }
+        }
+      }
+
       bm.importData(incoming);
       closeModal();
       toolbarUI.render();
