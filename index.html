@@ -151,30 +151,43 @@ class BookmarkManager {
   }
 }
 
-// --- 3. UI LAYER (Toolbar & Menüs) ---
+// --- 3. UI LAYER (Toolbar & Menüs) mit Performance-Optimierungen ---
 class ToolbarUI {
   constructor(manager) {
     this.manager = manager;
     this.openId = null;
+    this._cachedWidths = new Map();
   }
 
   render() {
     const pins = this.manager.items.filter(x => x.bar && !x.parent).sort((a, b) => (a.order || 0) - (b.order || 0));
     const rows = [document.getElementById("r1"), document.getElementById("r2")];
-    rows.forEach(r => r.innerHTML = "");
     const available = document.getElementById("bar").clientWidth - 12;
     
+    // 1. Breiten ermitteln (mit Caching zur Vermeidung von Layout Thrashing)
     const probe = document.createElement("div");
     probe.style.cssText = "position:fixed;left:-10000px;top:0;display:flex;gap:2px;white-space:nowrap;visibility:hidden;font:13px Arial,sans-serif";
+    
+    let missingPins = [];
     pins.forEach(x => {
-      const a = document.createElement("a");
-      a.className = "pin";
-      a.style.cssText = "display:flex;align-items:center;gap:5px;padding:1px 5px;flex-shrink:0;max-width:none";
-      a.innerHTML = `<span class="glyph">${isF(x) ? folderIcon() : globeIcon()}</span><span class="label">${esc(x.title)}${isF(x)?" ▾":""}</span>`;
-      probe.append(a);
+      if (!this._cachedWidths.has(x.id)) {
+        const a = document.createElement("a");
+        a.className = "pin" + (isF(x) ? " folder" : "");
+        a.innerHTML = `<span class="glyph">${iconMarkup(x)}</span><span class="label">${esc(x.title)}${isF(x)?" ▾":""}</span>`;
+        probe.append(a);
+        missingPins.push({ x, el: a });
+      }
     });
-    document.body.append(probe);
-    let widths = [...probe.children].map(n => n.getBoundingClientRect().width + 2); probe.remove();
+
+    if (missingPins.length > 0) {
+      document.body.append(probe);
+      missingPins.forEach(item => {
+        this._cachedWidths.set(item.x.id, item.el.getBoundingClientRect().width + 2);
+      });
+      probe.remove();
+    }
+
+    let widths = pins.map(x => this._cachedWidths.get(x.id) || 100);
     
     let chosen = [[], []], used = [0, 0], overflow = [], row = 0;
     pins.forEach((x, i) => {
@@ -188,12 +201,51 @@ class ToolbarUI {
       }
     }
     
-    chosen.forEach((arr, i) => arr.forEach(x => rows[i].append(this.createPinElement(x))));
+    // 2. DOM-schonendes Aktualisieren (verhindert das ständige Neuladen der Icons)
+    rows.forEach((r, i) => {
+      const targetPins = chosen[i];
+      const existingPins = [...r.querySelectorAll('.pin:not(.overflowpin)')];
+      
+      targetPins.forEach((x, index) => {
+        let existingEl = existingPins[index];
+        if (existingEl && existingEl.dataset.id === x.id) {
+          const labelEl = existingEl.querySelector('.label');
+          const expectedText = esc(x.title) + (isF(x) ? " ▾" : "");
+          if (labelEl && labelEl.textContent !== expectedText) {
+            labelEl.textContent = expectedText;
+          }
+        } else {
+          const newEl = this.createPinElement(x);
+          if (existingEl) {
+            r.replaceChild(newEl, existingEl);
+          } else {
+            r.insertBefore(newEl, r.lastChild || null);
+          }
+        }
+      });
+
+      while (r.children.length > targetPins.length + (i === 1 && r.querySelector('.overflowpin') ? 1 : 0)) {
+        let last = r.lastChild;
+        if (last && !last.classList.contains('overflowpin')) r.removeChild(last);
+        else break;
+      }
+    });
+
+    const r2 = rows[1];
+    let overflowEl = r2.querySelector('.overflowpin');
     if (overflow.length) {
-      let a = document.createElement("a"); a.href = "#"; a.className = "pin overflowpin"; a.style.flex = "0 0 auto";
-      a.innerHTML = '<span class="label">≫</span>'; a.title = "More bookmarks";
-      a.onclick = e => { e.preventDefault(); this.toggleOverflow(a, overflow.map(x => x.id)); };
-      rows[1].append(a);
+      if (!overflowEl) {
+        overflowEl = document.createElement("a");
+        overflowEl.href = "#"; 
+        overflowEl.className = "pin overflowpin"; 
+        overflowEl.style.flex = "0 0 auto";
+        overflowEl.innerHTML = '<span class="label">≫</span>'; 
+        overflowEl.title = "More bookmarks";
+        r2.append(overflowEl);
+      }
+      overflowEl.onclick = e => { e.preventDefault(); this.toggleOverflow(overflowEl, overflow.map(x => x.id)); };
+    } else if (overflowEl) {
+      overflowEl.remove();
     }
   }
 
@@ -228,6 +280,7 @@ class ToolbarUI {
         ord.splice(Math.max(0, idx), 0, src);
         ord.forEach((y, j) => this.manager.update(y.id, { order: j, parent: "", bar: true }));
       }
+      this._cachedWidths.clear();
       this.render();
     });
     return a;
@@ -460,6 +513,7 @@ class LockmarkSync {
       try { 
         bm.items = data.items; 
         repo.save(bm.items); 
+        toolbarUI._cachedWidths.clear();
         toolbarUI.render(); 
       } finally { 
         this.applyingRemote = false; 
@@ -655,7 +709,7 @@ function showContextMenu(x, y, item = null) {
     if (act === "all") showAllBookmarks();
     if (act === "sync") openSyncSettings();
     if (act === "edit" && item) openEditModal(bm.findById(item.id));
-    if (act === "remove" && item) { bm.update(item.id, { bar: false }); toolbarUI.render(); }
+    if (act === "remove" && item) { bm.update(item.id, { bar: false }); toolbarUI._cachedWidths.clear(); toolbarUI.render(); }
   });
 }
 
@@ -663,12 +717,26 @@ function openEditModal(x = null, asFolder = false, parentOverride = "") {
   let f = asFolder || isF(x), pdef = parentOverride || x?.parent || "",
       opts = '<option value="">Bookmarks toolbar</option>' + bm.items.filter(isF).map(o => `<option value="${o.id}" ${o.id === pdef ? "selected" : ""}>${esc(o.title)}</option>`).join("");
   
-  modal(`<h3>${x ? "Edit item" : f ? "New folder" : "New bookmark"}</h3><form id="form"><label class="field"><span>Name</span><input name="title" required value="${esc(x?.title || "")}"></label>${f ? "" : `<label class="field"><span>URL</span><input name="url" type="url" required placeholder="https://…" value="${esc(x?.url || "")}"></label>`}<label class="field"><span>Location</span><select name="parent">${opts}</select></label><label class="field"><span>Choose an icon</span><select name="glyphPreset"><option value="">Automatic (website favicon / folder)</option>${[["📁","Folder"],["📂","Open folder"],["⭐","Favorite"],["📚","Books"],["💼","Work"],["🏠","Home"],["🎨","Creative"],["🧰","Tools"],["🎵","Music"],["🎮","Games"],["📰","News"],["🛒","Shopping"],["🔒","Private"],["☁️","Cloud"]].map(([v,n])=>`<option value="${v}" ${(x?.glyph||"")===v?"selected":""}>${v} ${n}</option>`).join("")}</select><div class="icon-help">Bookmarks use the website icon by default.</div></label><label class="field"><span>Custom symbol (optional)</span><input name="glyph" value="${esc(x?.glyph || "")}" placeholder="Emoji or short text — overrides the selection"></label><label class="field"><span>Custom icon (image URL, optional)</span><input name="iconUrl" type="url" placeholder="https://…/icon.png" value="${esc(x?.iconUrl || "")}"></label><label><input name="bar" type="checkbox" ${x?.bar || (!x && !pdef) ? "checked" : ""}> Show in toolbar</label><div class="actions">${x ? '<button type="button" class="btn" id="del">Delete</button>' : ""}<button type="button" class="btn" id="cancel">Cancel</button><button class="btn" type="submit">Save</button></div></form>`);
+  modal(`<h3>${x ? "Edit item" : f ? "New folder" : "New bookmark"}</h3><form id="form"><label class="field"><span>Name</span><input name="title" required value="${esc(x?.title || "")}"></label>${f ? "" : `<label class="field"><span>URL</span><input name="url" type="url" required placeholder="https://…" value="${esc(x?.url || "")}"></label>`}<label class="field"><span>Location</span><select name="parent">${opts}</select></label><label class="field"><span>Choose an icon</span><select name="glyphPreset"><option value="">Automatic (website favicon / folder)</option>${[["📁","Folder"],["📂","Open folder"],["⭐","Favorite"],["📚","Books"],["💼","Work"],["🏠","Home"],["🎨","Creative"],["🧰","Tools"],["🎵","Music"],["🎮","Games"],["📰","News"],["🛒","Shopping"],["🔒","Private"],["☁️","Cloud"]].map(([v,n])=>`<option value="${v}" ${(x?.glyph||"")===v?"selected":""}>${v} ${n}</option>`).join("")}</select><div class="icon-help">Bookmarks use the website icon by default.</div></label><label class="field"><span>Custom symbol (optional)</span><input name="glyph" value="${esc(x?.glyph || "")}" placeholder="Emoji or short text — overrides the selection"></label><label class="field"><span>Custom icon (Upload image as Base64, optional)</span><input id="icon-file" type="file" accept="image/*"><input type="hidden" name="iconUrl" id="icon-url-val" value="${esc(x?.iconUrl || "")}"></label><label><input name="bar" type="checkbox" ${x?.bar || (!x && !pdef) ? "checked" : ""}> Show in toolbar</label><div class="actions">${x ? '<button type="button" class="btn" id="del">Delete</button>' : ""}<button type="button" class="btn" id="cancel">Cancel</button><button class="btn" type="submit">Save</button></div></form>`);
   
   document.getElementById("cancel").onclick = closeModal;
-  if (x) document.getElementById("del").onclick = () => { if (confirm("Delete this item?")) { bm.remove(x.id); hidePop(); closeModal(); toolbarUI.render(); } };
+  if (x) document.getElementById("del").onclick = () => { if (confirm("Delete this item?")) { bm.remove(x.id); hidePop(); closeModal(); toolbarUI._cachedWidths.clear(); toolbarUI.render(); } };
   
   let form = document.getElementById("form");
+  let fileInput = document.getElementById("icon-file");
+  let iconUrlVal = document.getElementById("icon-url-val");
+  
+  fileInput.addEventListener("change", () => {
+    let file = fileInput.files[0];
+    if (!file) return;
+    let reader = new FileReader();
+    reader.onload = e => {
+      iconUrlVal.value = e.target.result; // Base64 Data-URL
+      toast("Icon loaded into memory");
+    };
+    reader.readAsDataURL(file);
+  });
+
   let urlInput = form.querySelector('[name="url"]'), titleInput = form.querySelector('[name="title"]');
   if (urlInput && titleInput) {
     urlInput.addEventListener("input", () => {
@@ -691,14 +759,16 @@ function openEditModal(x = null, asFolder = false, parentOverride = "") {
       type: f ? "folder" : "link",
       parent,
       glyph: String(fd.get("glyph")).trim() || String(fd.get("glyphPreset") || ""),
-      iconUrl: String(fd.get("iconUrl") || "").trim(),
+      iconUrl: String(iconUrlVal.value).trim(),
       bar: fd.has("bar") && !parent
     };
     
     if (x) bm.update(x.id, v);
     else bm.add(v);
     
-    closeModal(); toolbarUI.render();
+    closeModal(); 
+    toolbarUI._cachedWidths.clear();
+    toolbarUI.render();
   };
 }
 
@@ -755,7 +825,10 @@ function importFile() {
       }
       if (!incoming.length) throw Error("No bookmarks found");
       bm.importData(incoming);
-      closeModal(); toolbarUI.render(); toast(incoming.length + " bookmarks imported");
+      closeModal(); 
+      toolbarUI._cachedWidths.clear();
+      toolbarUI.render(); 
+      toast(incoming.length + " bookmarks imported");
     } catch (e) { toast("Import failed: " + e.message); }
   };
 }
