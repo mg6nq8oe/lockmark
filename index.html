@@ -42,11 +42,14 @@ const prefs = (() => {
 })();
 function savePrefs() { try { localStorage.setItem(PREFS_KEY, JSON.stringify(prefs)); } catch {} }
 
+// Entfernt konsequent alle externen, nicht-lokalen Icon-URLs (alles, was keine Data-URL ist)
 function stripLegacyIcons(items) {
   let changed = false;
   (items || []).forEach(x => {
-    if (x && typeof x.iconUrl === "string" && /^https:\/\/www\.google\.com\/s2\/favicons/i.test(x.iconUrl)) {
-      delete x.iconUrl; delete x.iconAuto; changed = true;
+    if (x && typeof x.iconUrl === "string" && x.iconUrl.trim() !== "") {
+      if (!x.iconUrl.startsWith("data:")) {
+        delete x.iconUrl; delete x.iconAuto; changed = true;
+      }
     }
   });
   return changed;
@@ -63,6 +66,9 @@ class BookmarkRepository {
       if (raw) {
         let data = JSON.parse(raw);
         let items = data.items || data;
+        if (stripLegacyIcons(items)) {
+          this.save(items);
+        }
         if (items.length > 0 && !items.some(x => x.bar)) {
           items.forEach(x => { if (!x.parent) x.bar = true; });
         }
@@ -79,6 +85,7 @@ class BookmarkRepository {
       if (oldRaw) {
         let oldData = JSON.parse(oldRaw);
         let items = oldData.items || oldData;
+        stripLegacyIcons(items);
         if (items.length > 0 && !items.some(x => x.bar)) {
           items.forEach(x => { if (!x.parent) x.bar = true; });
         }
@@ -94,6 +101,7 @@ class BookmarkRepository {
   }
 
   save(items) {
+    stripLegacyIcons(items);
     let payload = {
       version: 1,
       updatedAt: Date.now(),
@@ -111,7 +119,6 @@ class BookmarkManager {
     this.items = stored.items;
     this._batchDepth = 0;
     this._dirty = false;
-    if (stripLegacyIcons(this.items)) this.repo.save(this.items);
   }
 
   persist() {
@@ -171,6 +178,8 @@ class BookmarkManager {
   }
 
   exportData() {
+    // Vor dem Export alle Items von externen/Legacy-Icons bereinigen
+    stripLegacyIcons(this.items);
     return JSON.stringify({ version: this.version, updatedAt: Date.now(), items: this.items }, null, 2);
   }
 
@@ -178,6 +187,8 @@ class BookmarkManager {
     let now = Date.now();
     let remap = new Map();
     incomingItems.filter(x => x.type === "folder").forEach(x => remap.set(x.id, crypto.randomUUID()));
+    
+    // Beim Importieren ebenfalls jegliche externe Icon-URLs restriktiv entfernen
     stripLegacyIcons(incomingItems);
 
     const base = this.nextOrder();
@@ -704,9 +715,8 @@ function iconMarkup(x) {
   if (!x) return globeIcon();
   const img = src => `<img data-custom-icon="1" src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer">`;
 
-  if (x.iconUrl && !x.iconAuto) return img(x.iconUrl);
-  if (x.glyph) return esc(x.glyph);
   if (x.iconUrl) return img(x.iconUrl);
+  if (x.glyph) return esc(x.glyph);
   if (isF(x)) return folderIcon();
   
   const list = faviconCandidates(x.url);
