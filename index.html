@@ -764,13 +764,24 @@ function openEditModal(x = null, asFolder = false, parentOverride = "") {
     if (x && (parent === x.id || (f && parent && isDescendant(parent, x.id)))) return toast("Ungültige Location: Schleife verhindert");
     if (!f) { try { if (!["http:", "https:"].includes(new URL(url).protocol)) throw 0; } catch { return toast("Invalid URL"); } }
     
+    // ----------------------------------------------------
+    // IHRE CODE-STELLE STARTET HIER:
+    // ----------------------------------------------------
+    let computedIconUrl = String(iconUrlVal.value).trim();
+    if (!computedIconUrl && !f && url) {
+      try {
+        const u = new URL(url);
+        computedIconUrl = `https://www.google.com/s2/favicons?domain=${u.hostname}&sz=32`;
+      } catch {}
+    }
+
     let v = {
       title: String(fd.get("title")).trim(),
       url,
       type: f ? "folder" : "link",
       parent,
       glyph: String(fd.get("glyph")).trim() || String(fd.get("glyphPreset") || ""),
-      iconUrl: String(iconUrlVal.value).trim(),
+      iconUrl: computedIconUrl, // <--- Hier wird das Icon nun fest im Datensatz gespeichert!
       bar: fd.has("bar") && !parent
     };
     
